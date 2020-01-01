@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configs on 小小的梦想</title>
+    <link>https://del2z.github.io/config/</link>
+    <description>Recent content in Configs on 小小的梦想</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://del2z.github.io/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/config/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/config/readme/</guid>
+      <description>Configs Terminal config/.bash_profile is the setup settings of terminal in MacOS, which defines some useful shortcut aliases and display style. The default theme of MacOS terminal is config/.
+Applications    Apps Settings     MacPorts    Miniconda    Julia     Neovim config/.vimrc is the initial settings of Neovim, which is an efficient replacement of Vim.
+Tmux config/.tmux.conf is the configuations of Tmux in MacOS, for management of multiple terminals.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+[user]
+	name = del2z
+	email = delta.z@aliyun.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	pl = pull
+	ps = push
+	di = diff
+	ca = commit-a
+	br = branch
+	ls = ls-files
+	logs = log-stat
+	logp = log -p
+	logg = log --graph --pretty=format:%an:%h:%B
+	loga = log --graph --pretty=format:%an:%h:%B --all
+[color]
+	ui = true
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+[color "status"]
+	branch = magenta bold
+	untracked = yellow
+	updated = cyan
+[color "diff"]
+	new = cyan
+[core]
+	editor = vim

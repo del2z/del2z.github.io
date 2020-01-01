@@ -1,23 +1,301 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Little Dream</title>
+    <title>小小的梦想</title>
     <link>https://del2z.github.io/</link>
-    <description>Recent content on A Little Dream</description>
+    <description>Recent content on 小小的梦想</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Dec 2019 14:02:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 18:46:11 +0800</lastBuildDate>
     
 	<atom:link href="https://del2z.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Test</title>
-      <link>https://del2z.github.io/posts/test/</link>
-      <pubDate>Mon, 09 Dec 2019 14:02:58 +0800</pubDate>
+      <link>https://del2z.github.io/test/</link>
+      <pubDate>Mon, 09 Dec 2019 18:46:11 +0800</pubDate>
       
-      <guid>https://del2z.github.io/posts/test/</guid>
-      <description>This is a test page.</description>
+      <guid>https://del2z.github.io/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/bagging-algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/bagging-algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/boosting-algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/boosting-algorithms/</guid>
+      <description>Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。
+Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。 $$ f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x}) $$ 针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。 $$ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]
+\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi(\mathbf{x}_i)) \[5pt] : \phi_t = \phi^\ast, \quad t = 0, \dots, T $$
+直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为梯度提升算法（Gradient Boosting algorithm），二阶近似的Boosting算法一般称为Newton提升算法（Newton Boosting algorithm）。
+梯度提升算法 一阶Taylor展开式如下。 $$ f(x + \Delta x) \approx f(x) + \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0 $$</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/clustering-algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/clustering-algorithms/</guid>
+      <description>聚类算法 K-means DBSCAN </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/decision-tree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/decision-tree/</guid>
+      <description>决策树 C4.5 CART 误差分析 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/expectation-maximization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/expectation-maximization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/gradient-descent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/gradient-descent/</guid>
+      <description>Gradient Descent optimization methods 基本原理 SGD Momentum NAG AdaGrad AdaDelta RMSprop Adam Nadam </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/information-theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/information-theory/</guid>
+      <description>信息论 基础知识 条件概率 条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$P(A | B)$表示。
+Bayes公式 全概率公式 指标 熵 $$ H(X) = \mathbb{E}_X [ -\log p(x) ] = -\sum_x p(x) \log p(x) $$
+联合熵 $$ H(X, Y) = \mathbb{E}{X, Y} [ -\log p(x, y) ] = -\sum{x,, y} p(x, y) \log p(x, y) $$
+条件熵 $$ H(X | Y) = \mathbb{E}Y [ H(X | y) ] = -\sum_y p(y) \sum_x p(x | y) \log p(x | y) = -\sum{x,, y} p(x, y) \log p(x | y) \[5pt] H(X | Y) = -\sum_{x,, y} p(x, y) \log \frac{p(x, y)}{p(y)} = -\sum_{x,, y} p(x, y) \log p(x, y) + \sum_y \log p(y) \sum_x p(x, y) = H(X, Y) - H(Y) $$</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/language-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/language-models/</guid>
+      <description>语言模型 定义 语言模型是词语序列的概率分布。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/logistic-regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/logistic-regression/</guid>
+      <description>逻辑回归 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/loss-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/loss-functions/</guid>
+      <description>损失函数 通用形式 在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。
+$$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L \big(Y,, f(X)\big)\big] = \mathbb{E}{X} \big[\mathbb{E}_{Y | X} \big[L\big(Y,, f(X)\big), |, X\big]\big] $$ 根据上述表示，损失的计算涉及标签和特征的概率分布。在大多数情况下，这些概率分布式未知的，特别是特征的条件概率分布。 幸运的是，利用一个已知数据集$\mathcal{D} = {(y_i,, \mathbf{x}i)}{i=1}^N$，可以直接估计损失，而不必考虑标签和特征的概率分布。这是因为，数据集$\mathcal{D}$中的样本是根据标签和样本的联合概率分布$P(Y, X)$采样得到的。
+那么，数据集$\mathcal{D}$的损失可以通过如下方式计算。 $$ \mathcal{L}(f) \approx \mathbb{E}\mathcal{D} [L(Y,, f(X))] = \frac{1}{N} \sum{i=1}^N L(y_i,, f(\mathbf{x}_i)) $$
+0-1损失 $$ L(y,, f(\mathbf{x})) = \mathbf{1} [y \neq g( f(\mathbf{x}) )], \quad g(z) = \begin{cases} 1, &amp;amp; z \geq 0 \
+-1, &amp;amp; z &amp;lt; 0 \end{cases} $$
+均方差损失 $$ L(y,, f(\mathbf{x})) = (y - f(\mathbf{x}))^2 $$</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/reinforcement-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/reinforcement-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/support-vector-machine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/support-vector-machine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/transfer-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/transfer-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/algorithm/transformer-to-xlnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/algorithm/transformer-to-xlnet/</guid>
+      <description>Transformer到XLNet Transformer Transformer最初是作为机器翻译的模型被提出的，是Encoder-Decoder结构。Transformer的编码器和解码器采用了类似的子结构，之后的文献一般称之为Transformer组块。Transformer模型在编码器和解码器都堆叠了6层组块，网络结构图如下所示。
+每个Transformer组块主要包含多头注意力、残差连接、层归一化、位置前馈网络等基本部分，下面分步详解。
+Positional Encoding Multi-head Attention Position-wise FFN ELMo GPT/GPT-2 BERT Transformer-XL XLNet RoBERTa </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/config/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/config/readme/</guid>
+      <description>Configs Terminal config/.bash_profile is the setup settings of terminal in MacOS, which defines some useful shortcut aliases and display style. The default theme of MacOS terminal is config/.
+Applications    Apps Settings     MacPorts    Miniconda    Julia     Neovim config/.vimrc is the initial settings of Neovim, which is an efficient replacement of Vim.
+Tmux config/.tmux.conf is the configuations of Tmux in MacOS, for management of multiple terminals.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/crfpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/crfpp/</guid>
+      <description>CRF++ CRF++安装 从CRF++官网下载linux版本源码，再将源码本地解压并安装。
+crf++的安装依赖gcc、make。
+tar -zxvf CRF++-xxx.tar.gz cd CRF++-xxx ./configure --prefix=/usr/local make (su) make install 安装python包 cd python python setup.py build (su) python setup.py install .so依赖问题 出现xxx错误时，是因为程序找不到依赖的.so库文件，按如下方式解决。
+(su) ln -s /usr/local/lib/libcrfpp.so.* /usr/lib64/ CRF++使用 CRF++采用BIO标记命名实体，需要配置一个template文件，用于提取训练特征。
+template文件
+输入格式
+输出格式</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/hadoop/</guid>
+      <description>Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Hadoop类似，Streaming一般包括map和reduce两个阶段。 在map阶段，处理脚本直接从标准输入读入输入文件，进行transform、filter之类处理，将结果打印到标准输出。Streaming会根据输出内容，解析成Key-Value对，默认的分隔符是\t。若每行有多个\t分隔的列，第一个\t之前的内容作为Key，之后的作为Value；若每行没有\t分隔符，则在行尾自动添加\t，Key为\t之前的内容，Value为空。Hadoop根据Key排序分桶，再将数据传输到不同的reduce机器。在reduce阶段，处理脚本从标准输入读取数据，进行reduce、group等处理，将结果打印到标准输出。Streaming自动将输出内容存储包输出文件中。
+Map Reduce 实践技巧 自定义python环境 通过conda创建python环境，并安装相关的包，然后打包python环境。
+conda create -n py_env python=3.6.8 ## 采用pip安装软件包 /path/to/conda/envs/py_env/bin/pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple ## 采用conda安装软件包 conda install scipy spacy -n py_env cd /path/to/conda/envs tar cxf env.tar.gz py_env 通常将python环境env.tar.gz上传到HDFS，避免本地文件误删导致任务失败。
+在Streaming运行命令中，指定脚本运行python环境。
+HADOOP_STREAM=&amp;#39;/path/to/hadoop-streaming/jar&amp;#39; hadoop jar $HADOOP_STREAM \  -archives &amp;#34;hdfs://host:port/path/to/env.tar.gz#env&amp;#34; \  -D mapreduce.job.name=$JOB_NAME \  -D mapreduce.job.maps=10 \  -D mapreduce.job.reduces=5 \  -files ./mapper.py,./reducer.py \  -mapper &amp;#34;env/py_env/bin/python mapper.py&amp;#34; \  -reducer &amp;#34;env/py_env/bin/python reducer.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/julia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/julia/</guid>
+      <description>Julia入门指导 设计原理 数据类型 广播 元编程 任务管理 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/pandas/</guid>
+      <description>Pandas常用函数    功能 函数 参数 示例     读文件 read_csv     写文件 to_csv     行列统计      列名      重命名列      选择行列      ^      删除行列      重置索引      变换列      合并      分组      聚合       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/pytorch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/pytorch/</guid>
+      <description>Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映射以及笛卡儿积等。张量一般有多个维度，零维张量是标量，一维是向量，二维是矩阵。Pytorch的基本数据结构就是张量。
+Function Function通常只定义一个操作，因其无法保存参数，因此适用于激活函数、pooling等操作。自定义Function时，需要重载三个方法：__init__、forward和backward。
+Module Function与Module都可以对pytorch进行自定义拓展，使其满足网络的需求，但这两者还是有十分重要的不同：
+ Function一般只定义一个操作，因为其无法保存参数，因此适用于激活函数、pooling等操作；Module是保存了参数，因此适合于定义一层，如线性层，卷积层，也适用于定义一个网络 Function需要定义三个方法：init, forward, backward（需要自己写求导公式）；Module：只需定义init和forward，而backward的计算由自动求导机制构成 可以不严谨的认为，Module是由一系列Function组成，因此其在forward的过程中，Function和Variable组成了计算图，在backward时，只需调用Function的backward就得到结果，因此Module不需要再定义backward。 Module不仅包括了Function，还包括了对应的参数，以及其他函数与变量，这是Function所不具备的。 module 是 pytorch 组织神经网络的基本方式。Module 包含了模型的参数以及计算逻辑。Function 承载了实际的功能，定义了前向和后向的计算逻辑。 Module 是任何神经网络的基类，pytorch 中所有模型都必需是 Module 的子类。 Module 可以套嵌，构成树状结构。一个 Module 可以通过将其他 Module 做为属性的方式，完成套嵌。 Function 是 pytorch 自动求导机制的核心类。Function 是无参数或者说无状态的，它只负责接收输入，返回相应的输出；对于反向，它接收输出相应的梯度，返回输入相应的梯度。 在调用loss.backward()时，使用的是Function子类中定义的backward()函数。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/spark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/spark/</guid>
+      <description>Spark入门指南 数据结构 SparkContext RDD Transformations Shuffles Actions Streaming Mllib </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/tensorflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/tensorflow/</guid>
+      <description>Tensorflow Dropout Softmax Mask </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/util/conda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/util/conda/</guid>
+      <description>Conda入门 创建环境 conda create python=3.6.8 -p /path/to/py3_venv   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/util/cuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/util/cuda/</guid>
+      <description>GPU环境安装 深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GPU有NVIDIA的Titan V、Tesla P40、Tesla V100等类型。 显卡驱动、CUDA、Tensorflow和Pytorch的安装都是在CentOS环境下进行。
+NVIDIA驱动安装 NVIDIA显卡驱动、CUDA工具包、Tensorflow之间有支持版本的限制，三者之间的版本依赖关系如下。
+   Linux Driver CUDA Tensorflow     &amp;gt;= 418.39 10.1 (10.1.105)    &amp;gt;= 410.48 10.0 (10.0.130)    &amp;gt;= 396.26 9.2 (9.2.88)    &amp;gt;= 390.46 9.1 (9.1.85)    &amp;gt;= 384.81 9.0 (9.0.76)    &amp;gt;= 375.26 8.0 (8.0.61 GA2)    &amp;gt;= 367.48 8.0 (8.0.44)     注意：下载安装包之前，需要先确定显卡、CUDA、Tensorflow的版本，然后执行后面的步骤。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/util/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/util/linux/</guid>
+      <description>Linux常用命令    功能 命令 选项 用例     文本检索 grep -r/-R 递归检索子文件夹的文件 -n 显示行号 grep -rn &#39;centos&#39; .   文本排序 sort -t 分隔符 -k 排序字段编号 -u 不打印重复记录 -n 按数值排序字段 -r 按逆序排序 sort -t$&#39;\t&#39; -k1n -k2nr file   字段分割 cut -d 分隔符 -f 打印字段编号 -b 打印字节编号 -c 打印字符编号 cut -d$&#39;\t&#39; -f2-4 infile &amp;gt; outfile   文件查看 cat -v 显示控制、删除及非ASCII字符 -e 行尾显示$ -t 制表符显示为^I cat -vet somefile   ^ head -n K或-K 显示文件头部K行，默认为10 head -5 somefile   ^ tail -n K或-K 显示文件尾部K行，默认为10 -f 跟踪显示输出 tail -5 somefile   文件编码 iconv -f 源文件编码 -t 目标文件编码 -o 输出文件 iconv -f gb18030 -t utf-8 -o tofile fromfile   远程登录 ssh -P xxx 连接端口号 ssh -P 3022 root@192.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/util/macos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/util/macos/</guid>
+      <description>Mac实用技巧 系统完整性保护 系统完整性保护（System Integrity Protection）默认是开启的，从而限制用户对/bin、/sbin、/System、/usr/sbin等目录的写操作。 通过如下步骤可以开启/关闭系统完整性保护。
+ 重启系统，开机启动时按下Command + R，Mac进入安全模式。 从Utilities &amp;gt; Terminal打开终端，csrutil status产看系统完整性保护的状态。 csrutil enable开启系统完整性保护；csrutil disable关闭系统完整性保护。 重启系统，新的系统完整性保护设置生效。  剪贴板 在MacOS中，有一些非常有用的终端命令，可以极大地提高工作效率。
+ pbcopy，将内容拷贝到剪贴板，如cat some.txt | pbcopy。 pbpaste，将剪贴板内容粘贴到文件，如pbpaste &amp;gt; some.txt。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/util/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/util/vim/</guid>
+      <description>Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。
+常用模式 Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。
+    操作     Normal =&amp;gt; Insert i 光标处插入 I 当前行第一个非空字符前插入 a 光标后插入 A 当前行行尾插入 o 在当前行之后开启新行插入 O 在当前行之前开启新行插入   Insert =&amp;gt; Normal &amp;lt;Esc&amp;gt;或&amp;lt;C-c&amp;gt;   Normal =&amp;gt; Visual v 进入Visual模式，从光标处开始选择 &amp;lt;S-v&amp;gt; 进入行Visual模式，从光标所处的行开始选择 &amp;lt;C-v&amp;gt; 进入列Visual模式，从光标所处的列开始选择   Visual =&amp;gt; Normal &amp;lt;Esc&amp;gt;或&amp;lt;C-c&amp;gt;   Visual + Edit ;normal &amp;lt;operation&amp;gt;&amp;lt;motion&amp;gt;   Normal =&amp;gt; Command :&amp;lt;command&amp;gt;   Command =&amp;gt; Normal &amp;lt;Esc&amp;gt;或&amp;lt;C-c&amp;gt;    基本操作 操作指令 Vim在Normal模式下的命令通常是&amp;lt;operation&amp;gt;&amp;lt;motion&amp;gt;形式，&amp;lt;operation&amp;gt;定义一个操作指令，&amp;lt;motion&amp;gt;定义一个动作指令。 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。</description>
     </item>
     
   </channel>

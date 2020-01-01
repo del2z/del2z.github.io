@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title> // 小小的梦想</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="del2z" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。
+Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。 $$ f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x}) $$ 针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。 $$ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]
+\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) &#43; \beta \phi(\mathbf{x}_i)) \[5pt] : \phi_t = \phi^\ast, \quad t = 0, \dots, T $$
+直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为梯度提升算法（Gradient Boosting algorithm），二阶近似的Boosting算法一般称为Newton提升算法（Newton Boosting algorithm）。
+梯度提升算法 一阶Taylor展开式如下。 $$ f(x &#43; \Delta x) \approx f(x) &#43; \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0 $$"/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。
+Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。 $$ f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x}) $$ 针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。 $$ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]
+\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) &#43; \beta \phi(\mathbf{x}_i)) \[5pt] : \phi_t = \phi^\ast, \quad t = 0, \dots, T $$
+直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为梯度提升算法（Gradient Boosting algorithm），二阶近似的Boosting算法一般称为Newton提升算法（Newton Boosting algorithm）。
+梯度提升算法 一阶Taylor展开式如下。 $$ f(x &#43; \Delta x) \approx f(x) &#43; \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0 $$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://del2z.github.io/algorithm/boosting-algorithms/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://del2z.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="del2z" /></a>
+      <h1>小小的梦想</h1>
+      <p>del2z的个人站点，记录走过的路、踩过的坑、做过的事、吃过的苦，一路收获，一路成长。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/del2z" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          6 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="boosting">Boosting算法</h1>
+<h2 id="heading">基本原理</h2>
+<p>Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。</p>
+<p>Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。
+$$
+f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x})
+$$
+针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。
+$$
+L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]</p>
+<p>\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}}
+\frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi(\mathbf{x}_i)) \[5pt]
+: \phi_t = \phi^\ast, \quad t = 0, \dots, T
+$$</p>
+<p>直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。
+利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为<strong>梯度提升算法</strong>（<strong>Gradient Boosting algorithm</strong>），二阶近似的Boosting算法一般称为<strong>Newton提升算法</strong>（<strong>Newton Boosting algorithm</strong>）。</p>
+<h3 id="heading-1">梯度提升算法</h3>
+<p>一阶Taylor展开式如下。
+$$
+f(x + \Delta x) \approx f(x) + \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0
+$$</p>
+<p>根据一阶Taylor近似，每个样本$\mathbf{x}$的损失函数$L$在$F_{t-1}(\mathbf{x})$处展开并最小化。
+$$
+L \big(y, F_{t-1}(\mathbf{x}) + \beta \phi(\mathbf{x}) \big) \approx L \big(y, F_{t-1}(\mathbf{x}) \big) + \beta \phi(\mathbf{x})
+\textcolor{blue}{\frac{\partial L(y, F)}{\partial F} \big(y, F_{t-1}(\mathbf{x})\big)} \[5pt]</p>
+<p>\textcolor{blue}{g_t (\mathbf{x})} = \textcolor{blue}{\frac{\partial L(y, F)}{\partial F} \big(y, F_{t-1}(\mathbf{x})\big)} \[5pt]</p>
+<p>\min_{\phi,, \beta} \frac{1}{N} \sum_{i=1}^N L \big(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi(\mathbf{x}_i) \big) \approx
+\min_{\phi,, \beta} \frac{1}{N} \sum_{i=1}^N L \big(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi(\mathbf{x}_i) \big) \[2pt]
+\Leftrightarrow C + \min_{\phi} \frac{\beta}{N} \sum_{i=1}^N \phi(\mathbf{x}_i), \textcolor{blue}{g_t (\mathbf{x}_i)}
+\Leftrightarrow \min_{\phi} \big[ \phi(\mathbf{x}_i) \big]_N^\mathsf{T} \big[ \textcolor{blue}{g_t (\mathbf{x}_i)} \big]_N
+$$</p>
+<p>最小化上述损失函数等价于最小化$N$个样本的梯度向量$\big[ \textcolor{blue}{g_t (\mathbf{x}<em>i)} \big]<em>N$和新一轮基学习器在$N$个样本上的预测值向量$\big[ \phi(\mathbf{x}<em>i) \big]<em>N$的内积。根据内积公式得出，两个向量的内积在向量夹角达到$180^\circ$时最小，也就是两个向量平行且反向。因此，新一轮基学习器$\phi(\mathbf{x})$的训练目标即是每个样本的负梯度。
+$$
+\min</em>{\phi,, \rho} \frac{1}{N} \sum</em>{i=1}^N \big[ - \textcolor{blue}{g_t (\mathbf{x}<em>i)} - \rho \phi(\mathbf{x}<em>i) \big]^2
+= \min</em>{\phi,, \rho} \frac{1}{N} \sum</em>{i=1}^N \big[ C&rsquo; + 2\rho \phi(\mathbf{x}<em>i), \textcolor{blue}{g_t (\mathbf{x}<em>i)} + \rho^2 \phi(\mathbf{x}<em>i)^2 \big] \[5pt]
+\phi_t(\mathbf{x}) = \phi^\ast(\mathbf{x}), \quad \phi</em>{</em>{0}}(\mathbf{x}) = \arg\min</em>{\beta} \frac{1}{N} \sum</em>{i=1}^N L(y_i, \beta) \[5pt]
+\quad \beta_t = \arg\min</em>{\beta} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi_t(\mathbf{x}_i))
+$$</p>
+<p>通过上述过程，Boosting算法可以通过算法$\mathcal{A}$逐步训练每一轮的基学习器，最终得到Boosting模型。由于在训练中仅用到损失函数的一阶近似估计，因此这类算法也被称为梯度提升算法。</p>
+<h3 id="newton">Newton提升算法</h3>
+<p>二阶Taylor展开式如下。
+$$
+f(x + \Delta x) \approx f(x) + \frac{d f(x)}{d x} \Delta x + \frac{1}{2} \frac{d^2 f(x)}{d x^2} (\Delta x)^2 , \quad |\Delta x| \approx 0
+$$</p>
+<p>根据二阶Taylor近似，每个样本$\mathbf{x}$的损失函数$L$在$F_{t-1}(\mathbf{x})$处展开并最小化。
+$$
+L \big(y, F_{t-1}(\mathbf{x}) + \beta \phi(\mathbf{x}) \big) \approx L \big(y, F_{t-1}(\mathbf{x}) \big) + \beta \phi(\mathbf{x}) \textcolor{blue}{\frac{\partial L(y, F)}{\partial F}
+\big(y, F_{t-1}(\mathbf{x}) \big)} + \frac{1}{2} \beta^2 \phi(\mathbf{x})^2, \textcolor{red}{\frac{\partial^{2} L(y, F)}{\partial F^{2}} \big(y, F_{t-1}(\mathbf{x}) \big)} \[5pt]</p>
+<p>\textcolor{red}{h_t (\mathbf{x})} = \textcolor{red}{\frac{\partial^{2} L(y, F)}{\partial F^{2}} \big(y, F_{t-1}(\mathbf{x}) \big)} \[5pt]</p>
+<p>\min_{\phi,, \beta} \frac{1}{N} \sum_{i=1}^N L \big(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi(\mathbf{x}_i) \big) \approx
+\min_{\phi,, \beta} \frac{1}{N} \sum_{i=1}^N \bigg[ \beta \phi(\mathbf{x}_i), \textcolor{blue}{g_t (\mathbf{x}_i)} + \frac{1}{2} \beta^2 \phi(\mathbf{x}_i)^2,
+\textcolor{red}{h_t (\mathbf{x}_i)} \bigg] \[3pt]
+\Leftrightarrow \min_{\phi,, \beta} \frac{1}{N} \sum_{i=1}^N \frac{1}{2} \textcolor{red}{h_t (\mathbf{x}_i)}
+\bigg[ -\frac{\textcolor{blue}{g_t (\mathbf{x}_i)}}{\textcolor{red}{h_t (\mathbf{x}_i)}} - \beta \phi(\mathbf{x}_i) \bigg]^2 \[5pt]</p>
+<p>\phi_t(\mathbf{x}) = \phi^\ast(\mathbf{x}), \quad \phi_{_0}(\mathbf{x}) = \arg\min_{\beta} \frac{1}{N} \sum_{i=1}^N L(y_i, \beta), \quad \beta_t = \beta^\ast
+$$</p>
+<p>上述的训练过程不仅利用了一阶导数，而且需要二阶导数，因此这类算法也被称为Newton提升算法。下面分别介绍最著名的Adaboost算法、最常见的GBDT和XGBoost算法。</p>
+<h2 id="adaboost">Adaboost</h2>
+<p>Adaboost是最早出现的梯度提升算法，但它并不是从一阶Taylor近似推导出来的，而是从一个非常朴素的思想具象化得到的。Adaboost算法背后的基本思想是“从错误中学习”，其实这也是所有Boosting算法的共同原理。</p>
+<p>简单来说，首先为所有样本赋予相同的权重；其次，利用带权重的样本训练一个基学习器，判断基学习器对每个样本的预测结果；再次，分类正确的样本降低权重，分类错误的样本增加权重；最后，重复前两个步骤，将所有的基学习器加权平均得到最终的模型。Adaboost算法步骤如下。</p>
+<blockquote>
+<p>Require:</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>Return</p>
+</blockquote>
+<h2 id="gbdt">GBDT</h2>
+<p>GBDT（Gradient Boosting Decision Tree）称为梯度提升决策树，一般以CART（Classification And Regression Tree，分类回归树）作为基学习器。</p>
+<p>CART不同于常见的决策树算法（如ID3、C4.5等），其具有如下一些特点。</p>
+<ul>
+<li>二叉树，树的每个分支节点仅分裂成两个子节点。</li>
+<li>同一个特征可在不同深度的节点分裂时复用。</li>
+<li>针对分类和回归任务，采用不同的分裂准则。</li>
+</ul>
+<p>CART的通用形式如下所示。
+$$
+\phi_i(\mathbf{x}) = \sum_{j=1}^T \gamma_j \cdot \mathbf{1} [\mathbf{x}\in \mathcal{R}_j]
+$$</p>
+<p>$$
+F_t(\mathbf{x}) = F_{t-1}(\mathbf{x}) + \textcolor{gray}{\beta_t} \sum_{j=1}^{T_t}
+\gamma_{t,, j} \cdot \mathbf{1} [\mathbf{x}\in \mathcal{R}_{t,, j}] \[5pt]
+\mathcal{L}_t (\phi) = \frac{1}{N} \sum_{i=1}^N L\Big(y_i, F_{t-1}(\mathbf{x}_i)
++ \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]\Big)
+$$
+\only&lt;2&gt;{\begin{align*}
+\mathcal{L}_t (\phi) &amp;= \frac{1}{N} \sum_{i=1}^N L\Big(y_i, F_{t-1}(\mathbf{x}_i)
++ \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]\Big) \<br>
+&amp;= \frac{1}{N} \sum_{i=1}^N \bigg[ C + \textcolor{magenta}{g_t (\mathbf{x}_i)}
+\sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]
++ \frac{1}{2} \sum_{j=1}^{T_t} \gamma_{t,, j}^2 , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}] \bigg] \<br>
+&amp;= C&rsquo; + \frac{1}{N} \sum_{j=1}^{T_t} \sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}} \bigg[
+\textcolor{magenta}{g_t (\mathbf{x}_i)} \gamma_{t,, j} + \frac{1}{2} \gamma_{t,, j}^2 \bigg] \<br>
+&amp;= C&rsquo; + \frac{1}{N} \sum_{j=1}^{T_t} \bigg[ \bigg(\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}}
+\textcolor{magenta}{g_t (\mathbf{x}_i)} \bigg) \gamma_{t,, j} + \frac{N_{t,, j}}{2} \gamma_{t,, j}^2 \bigg]
+\end{align*}}
+\only&lt;3&gt;{\gamma_{t,, j}^\ast = -\frac{\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}}
+\textcolor{magenta}{g_t (\mathbf{x}_i)}}{N_{t,, j}}
+= -\frac{G_{t,, j}}{N_{t,, j}} \[5pt]
+\mathcal{L}_t^\ast = C&rsquo; - \frac{1}{2 N} \sum_{j=1}^{T_t} \frac{G_{t,, j}^{,2}}{N_{t,, j}} \[5pt]
+Gain = \frac{1}{2 N} \Bigg( \frac{G_{left}^{,2}}{N_{left}}
++ \frac{G_{right}^{,2}}{N_{right}} - \frac{G_{parent}^{,2}}{N_{parent}} \Bigg)}</p>
+<blockquote>
+<p>Require: $\mathcal{D}$, $L(y, F)$, $K$, $\eta$, $T$</p>
+<p>$F_{_0}(\mathbf{x}) = \phi_{_{0}}(\mathbf{x}) = \arg\min_{\beta} \frac{1}{N} \sum_{i=1}^N L(y_i, \beta)$</p>
+<p>For $t = 1, 2, \dots, K$</p>
+<p>$\quad~\textcolor{blue}{g_t (\mathbf{x}) = \frac{\partial L(y, F)}{\partial F} \big( y, F_{t-1}(\mathbf{x}) \big) }$</p>
+<p>$\quad~$Determine the structure $\mathcal{R}_{t,, j}$ by selecting splits which maximize</p>
+<p>$\qquad~~Gain = \frac{1}{2 N} \Big( \frac{G_{left}^{,2}}{N_{left}} + \frac{G_{right}^{,2}}{N_{right}} - \frac{G_{parent}^{,2}}{N_{parent}} \Big)$</p>
+<p>$\quad~$Determine the leaf weight $\gamma_{t,, j}$ for the learned structure by</p>
+<p>$\qquad~~\gamma_{t,, j} = \arg\min_\gamma \sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}} L(y_i, F_{t-1}(\mathbf{x}_i) + \gamma)$</p>
+<p>$\quad~F_t (\mathbf{x}) = F_{t-1}(\mathbf{x}) + \eta \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]$</p>
+<p>Return: $F_K(\mathbf{x})$</p>
+</blockquote>
+<h2 id="xgboost">XGBoost</h2>
+<p>\only&lt;1&gt;{F_t(\mathbf{x}) = F_{t-1}(\mathbf{x}) + \textcolor{gray}{\beta_t} \sum_{j=1}^{T_t}
+\gamma_{t,, j} \cdot \mathbf{1} [\mathbf{x}\in \mathcal{R}_{t,, j}] \[5pt]
+\mathcal{L}_t (\phi) = \frac{1}{N} \sum_{i=1}^N L\Big(y_i, F_{t-1}(\mathbf{x}_i)
++ \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]\Big) + \Omega(\phi) \[5pt]
+\Omega(\phi) = \mu T_t + \frac{\lambda}{2} \sum_{j=1}^{T_t} \gamma_{t,, j}^2}
+\only&lt;2&gt;{\begin{align*}
+\mathcal{L}_t (\phi) &amp;= \frac{1}{N} \sum_{i=1}^N L\Big(y_i, F_{t-1}(\mathbf{x}_i)
++ \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]\Big) + \Omega(\phi) \<br>
+&amp;= \frac{1}{N} \sum_{i=1}^N \bigg[ C + \textcolor{magenta}{g_t (\mathbf{x}_i)}
+\sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]
++ \frac{1}{2} \textcolor{cyan}{h_t (\mathbf{x}_i)} \sum_{j=1}^{T_t}
+\gamma_{t,, j}^2 , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}] \bigg]
++ \mu T_t + \frac{\lambda}{2} \sum_{j=1}^{T_t} \gamma_{t,, j}^2 \<br>
+&amp;= C&rsquo; + \frac{1}{N} \sum_{j=1}^{T_t} \bigg[ \bigg(\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}}
+\textcolor{magenta}{g_t (\mathbf{x}_i)} \bigg) \gamma_{t,, j} + \frac{1}{2} \bigg(\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}}
+\textcolor{cyan}{h_t (\mathbf{x}_i)} + \lambda \bigg) \gamma_{t,, j}^2 \bigg] + \mu T_t
+\end{align*}}
+\only&lt;3&gt;{\gamma_{t,, j}^\ast = -\frac{\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}}
+\textcolor{magenta}{g_t (\mathbf{x}_i)}}{\sum_{\mathbf{x}_i\in \mathcal{R}_{t,, j}} \textcolor{cyan}{h_t (\mathbf{x}_i)} + \lambda}
+= -\frac{G_{t,, j}}{H_{t,, j} + \lambda} \[5pt]
+\mathcal{L}_t^\ast = C&rsquo; - \frac{1}{2 N} \sum_{j=1}^{T_t} \frac{G_{t,, j}^{,2}}{H_{t,, j} + \lambda} + \mu T_t \[5pt]
+Gain = \frac{1}{2 N} \Bigg( \frac{G_{left}^{,2}}{H_{left} + \lambda}
++ \frac{G_{right}^{,2}}{H_{right} + \lambda} - \frac{G_{parent}^{,2}}{H_{parent} + \lambda}\Bigg) - \mu}</p>
+<p>\begin{algorithmic}[1]
+\REQUIRE$\mathcal{D}$,;$L(y, F)$,;$K$,;$\eta$,;$T$,;$\mu$,;$\lambda$
+\STATE$F_{_0}(\mathbf{x}) = \phi_{_{0}}(\mathbf{x}) = \arg\min_{\beta} \frac{1}{N} \sum_{i=1}^N L(y_i, \beta)$
+\FOR{$t = 1, 2, \dots, K$}
+\STATE{$\textcolor{magenta}{g_t (\mathbf{x})} = \frac{\partial L(y, F)}{\partial F} \Big|_{F(\mathbf{x}) = F_{t-1}(\mathbf{x})}$,;
+$\textcolor{cyan}{h_t (\mathbf{x})} = \frac{\partial^{,2} L(y, F)}{\partial F^{,2}} \Big|_{F(\mathbf{x}) = F_{t-1}(\mathbf{x})}$}
+\STATE{Determine the structure$\mathcal{R}_{t,, j}$by selecting splits which maximize \<br>
+$Gain = \frac{1}{2 N} \big( \frac{G_{left}^{,2}}{H_{left} + \lambda}
++ \frac{G_{right}^{,2}}{H_{right} + \lambda} - \frac{G_{parent}^{,2}}{H_{parent} + \lambda} \big) - \mu$}
+\STATE{Determine the leaf weight$\gamma_{t,, j}$for the learnt structure by \<br>
+$\gamma_{t,, j} = -\frac{G_{t,, j}}{H_{t,, j} + \lambda}$}
+\STATE{$F_t (\mathbf{x}) = F_{t-1}(\mathbf{x}) + \eta \sum_{j=1}^{T_t} \gamma_{t,, j} , \mathbf{1} [\mathbf{x}_i\in \mathcal{R}_{t,, j}]$}
+\ENDFOR
+\RETURN$F_K(\mathbf{x})$
+\end{algorithmic}</p>
+<h2 id="heading-2">误差分析</h2>
+<p>\frametitle{偏差—方差分解}
+\begin{itemize}
+\item 泛化误差可分解为偏差（Bias）和方差（Variance）
+[ \mathcal{L}(f) = \mathbb{E}<em>{Y,, X} [L(Y,, f(X))] = \mathbb{E}</em>{X} [\textcolor{orange}{\mathbb{E}_{Y | X} [L(Y,, f(X)), |, X]}] ]
+\item 对于均方差损失
+\begin{align*}\hskip-18pt
+Err(f) &amp; \overset{def}{=} \mathbb{E}_{Y | X} [L(Y,, f(X)), |, X = \mathbf{x}] = \mathbb{E}_{Y | \mathbf{x}} (Y - f(\mathbf{x}))^2 \[3pt]
+&amp;= \mathbb{E}_{Y | \mathbf{x}} [ \mathbb{E}_\mathcal{D} (Y - f(\mathbf{x}; \mathcal{D}))^2 ] \[3pt]
+&amp;= \textcolor{red}{\boxed{\mathbb{E}_{Y | \mathbf{x}} \big( Y - \mathbb{E}_\mathcal{D} [f(\mathbf{x}; \mathcal{D})] \big)^2}}
++ \textcolor{blue}{\boxed{\mathbb{E}_\mathcal{D} \big( f(\mathbf{x}; \mathcal{D}) - \mathbb{E}_\mathcal{D} [f(\mathbf{x}; \mathcal{D})] \big)^2}} \[3pt]
+\only&lt;1&gt;{\tikz[overlay]{
+\node[inner sep=3pt, fill=green!15, ellipse callout,
+callout pointer arc=20, callout relative pointer={(0, 0.5)}]
+at (2.5, -0.3) {$\textcolor{red}{bias^2}$};
+\node[inner sep=3pt, fill=green!15, ellipse callout,
+callout pointer arc=15, callout relative pointer={(0, 0.55)}]
+at (7.5, -0.3) {$\textcolor{blue}{variance}$};}}
+\only&lt;2&gt;{&amp;= \textcolor{gray}{\boxed{\mathbb{E}_{Y | \mathbf{x}} \big( Y - \mathbb{E}_{Y | \mathbf{x}} [Y] \big)^2}}
++ \textcolor{red}{\boxed{\big( \mathbb{E}_{Y | \mathbf{x}} [Y] - \mathbb{E}_\mathcal{D} [f(\mathbf{x}; \mathcal{D})] \big)^2}} \<br>
+&amp;{\hskip 1.2em} + \textcolor{blue}{\boxed{\mathbb{E}_\mathcal{D} \big( f(\mathbf{x}; \mathcal{D})
+- \mathbb{E}_\mathcal{D} [f(\mathbf{x}; \mathcal{D})] \big)^2}} \<br>
+\tikz[overlay]{
+\node[inner sep=3pt, fill=green!15, ellipse callout,
+callout pointer arc=30, callout relative pointer={(0.6, 0.2)}]
+at (-0.6, 1) {$\textcolor{gray}{noise^2}$};
+\node[inner sep=3pt, fill=green!15, ellipse callout,
+callout pointer arc=20, callout relative pointer={(-0.6, 0.42)}]
+at (7.5, 0.7) {$\textcolor{red}{bias^2}$};
+\node[inner sep=3pt, fill=green!15, ellipse callout,
+callout pointer arc=20, callout relative pointer={(-0.9, -0.42)}]
+at (9, 4.06) {$\textcolor{blue}{variance}$};}}
+\end{align*}
+\end{itemize}
+\end{frame}</p>
+<p>\begin{frame}
+\frametitle{偏差—方差分解}
+\begin{itemize}
+\item 对于多数投票模型：Bagging、Boosting等
+\begin{gather*}
+f(\mathbf{x}) \overset{def}{=} F_K(\mathbf{x}) = \sum_{i=1}^K \beta_i, \phi_i (\mathbf{x}), \quad \text{set } \beta_i = \frac{1}{K} \[3pt]
+\textcolor{orange}{\boxed{\phi_i^\mathcal{D} \overset{def}{=} \phi_i(\mathbf{x}; \mathcal{D})}} \qquad
+\textcolor{red}{bias = \frac{1}{K} \sum_{i=1}^K \big( \mathbb{E}_{Y | \mathbf{x}} [Y] - \mathbb{E}_\mathcal{D} [\phi_i^\mathcal{D}] \big)} \[3pt]
+\textcolor{blue}{variance = \frac{1}{K} \sum_{i=1}^K \mathbb{E}_\mathcal{D} \big( \phi_i^\mathcal{D}
+- \mathbb{E}_\mathcal{D} [\phi_i^\mathcal{D}] \big)^2} \[3pt]
+\hskip-20pt\textcolor{cyan}{covariance = \frac{1}{K (K - 1)} \sum_{\substack{i,, j=1\ j\neq i}}^K \mathbb{E}_\mathcal{D} \big( \phi_i^\mathcal{D}
+- \mathbb{E}_\mathcal{D} [\phi_i^\mathcal{D}] \big), \mathbb{E}_\mathcal{D} \big( \phi_j^\mathcal{D}
+- \mathbb{E}_\mathcal{D} [\phi_j^\mathcal{D}] \big)}
+\end{gather*}
+\end{itemize}
+\end{frame}</p>
+<p>\begin{frame}
+\frametitle{偏差—方差分解}
+\framesubtitle{多样性}
+\begin{itemize}
+\item 多样性：单个基学习器存在差异
+[ Err(f) = \textcolor{gray}{noise^2} + \textcolor{red}{bias^2} + \frac{1}{K} \textcolor{blue}{variance}
++ \bigg( 1 - \frac{1}{K} \bigg) \textcolor{cyan}{covariance} ]
+\item 基学习器多样性越大，协方差covariance越小
+\begin{itemize}
+\item 样本采样：随机采样一部分样本
+\item 特征采样：随机选择一部分特征
+\end{itemize}
+\end{itemize}
+\end{frame}</p>
+<p>\begin{frame}
+\frametitle{偏差—方差分解}
+\framesubtitle{Boosting学习曲线}
+\begin{itemize}
+\item 大多数算法的泛化误差是偏差、方差的均衡
+\item&lt;2-&gt; 多数投票算法的基学习器越多，泛化误差越小
+\begin{itemize}
+\item margin理论：训练轮数增加，样本点的margin越大
+\item 泛化误差上界与Boosting基学习器数量无关
+\item 泛化误差上界与样本点的margin分布有关
+\item Boosting模型在训练误差达到最小之后继续更新
+\end{itemize}
+\end{itemize}
+\end{frame}</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

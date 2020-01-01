@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title> // 小小的梦想</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="del2z" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。
+常用模式 Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。
+    操作     Normal =&gt; Insert i 光标处插入 I 当前行第一个非空字符前插入 a 光标后插入 A 当前行行尾插入 o 在当前行之后开启新行插入 O 在当前行之前开启新行插入   Insert =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Normal =&gt; Visual v 进入Visual模式，从光标处开始选择 &lt;S-v&gt; 进入行Visual模式，从光标所处的行开始选择 &lt;C-v&gt; 进入列Visual模式，从光标所处的列开始选择   Visual =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Visual &#43; Edit ;normal &lt;operation&gt;&lt;motion&gt;   Normal =&gt; Command :&lt;command&gt;   Command =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;    基本操作 操作指令 Vim在Normal模式下的命令通常是&lt;operation&gt;&lt;motion&gt;形式，&lt;operation&gt;定义一个操作指令，&lt;motion&gt;定义一个动作指令。 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。"/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。
+常用模式 Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。
+    操作     Normal =&gt; Insert i 光标处插入 I 当前行第一个非空字符前插入 a 光标后插入 A 当前行行尾插入 o 在当前行之后开启新行插入 O 在当前行之前开启新行插入   Insert =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Normal =&gt; Visual v 进入Visual模式，从光标处开始选择 &lt;S-v&gt; 进入行Visual模式，从光标所处的行开始选择 &lt;C-v&gt; 进入列Visual模式，从光标所处的列开始选择   Visual =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Visual &#43; Edit ;normal &lt;operation&gt;&lt;motion&gt;   Normal =&gt; Command :&lt;command&gt;   Command =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;    基本操作 操作指令 Vim在Normal模式下的命令通常是&lt;operation&gt;&lt;motion&gt;形式，&lt;operation&gt;定义一个操作指令，&lt;motion&gt;定义一个动作指令。 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://del2z.github.io/util/vim/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://del2z.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="del2z" /></a>
+      <h1>小小的梦想</h1>
+      <p>del2z的个人站点，记录走过的路、踩过的坑、做过的事、吃过的苦，一路收获，一路成长。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/del2z" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="vim">Vim入门指导</h1>
+<p>Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。</p>
+<h2 id="heading">常用模式</h2>
+<p>Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Normal</strong> =&gt; <strong>Insert</strong></td>
+<td align="left"><code>i</code> 光标处插入 <!-- raw HTML omitted --> <code>I</code> 当前行第一个非空字符前插入 <!-- raw HTML omitted --> <code>a</code> 光标后插入 <!-- raw HTML omitted --> <code>A</code> 当前行行尾插入 <!-- raw HTML omitted --> <code>o</code> 在当前行之后开启新行插入 <!-- raw HTML omitted --> <code>O</code> 在当前行之前开启新行插入</td>
+</tr>
+<tr>
+<td align="center"><strong>Insert</strong> =&gt; <strong>Normal</strong></td>
+<td align="left"><code>&lt;Esc&gt;</code>或<code>&lt;C-c&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><strong>Normal</strong> =&gt; <strong>Visual</strong></td>
+<td align="left"><code>v</code> 进入Visual模式，从光标处开始选择 <!-- raw HTML omitted --> <code>&lt;S-v&gt;</code> 进入行Visual模式，从光标所处的行开始选择 <!-- raw HTML omitted --> <code>&lt;C-v&gt;</code> 进入列Visual模式，从光标所处的列开始选择</td>
+</tr>
+<tr>
+<td align="center"><strong>Visual</strong> =&gt; <strong>Normal</strong></td>
+<td align="left"><code>&lt;Esc&gt;</code>或<code>&lt;C-c&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><strong>Visual</strong> + <strong>Edit</strong></td>
+<td align="left"><code>;normal &lt;operation&gt;&lt;motion&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><strong>Normal</strong> =&gt; <strong>Command</strong></td>
+<td align="left"><code>:&lt;command&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><strong>Command</strong> =&gt; <strong>Normal</strong></td>
+<td align="left"><code>&lt;Esc&gt;</code>或<code>&lt;C-c&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="heading-1">基本操作</h2>
+<h3 id="heading-2">操作指令</h3>
+<p>Vim在Normal模式下的命令通常是<code>&lt;operation&gt;&lt;motion&gt;</code>形式，<code>&lt;operation&gt;</code>定义一个操作指令，<code>&lt;motion&gt;</code>定义一个动作指令。
+操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。</p>
+<p>常见的操作如下表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operation</th>
+<th align="left">功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>c&lt;motion&gt;</code></td>
+<td align="left">删除<code>&lt;motion&gt;</code>覆盖的内容（存入寄存器），进入Insert模式</td>
+<td><code>c3j</code></td>
+</tr>
+<tr>
+<td align="left"><code>C</code></td>
+<td align="left">删除光标处到行尾，及<code>[count]-1</code>行内容（存入寄存器），进入Insert模式</td>
+<td><code>3C</code></td>
+</tr>
+<tr>
+<td align="left"><code>cc</code></td>
+<td align="left">删除<code>[count]</code>行（存入寄存器），进入Insert模式</td>
+<td><code>3cc</code></td>
+</tr>
+<tr>
+<td align="left"><code>s</code></td>
+<td align="left">删除光标处<code>[count]</code>个字符（存入寄存器），进入Insert模式，等同于<code>cl</code></td>
+<td><code>3s</code></td>
+</tr>
+<tr>
+<td align="left"><code>S</code></td>
+<td align="left">删除<code>[count]</code>行（存入寄存器），进入Insert模式，等同于<code>cc</code></td>
+<td><code>3S</code></td>
+</tr>
+<tr>
+<td align="left"><code>d&lt;motion&gt;</code></td>
+<td align="left">删除<code>&lt;motion&gt;</code>覆盖的内容（存入寄存器）</td>
+<td><code>d5l</code></td>
+</tr>
+<tr>
+<td align="left"><code>D</code></td>
+<td align="left">删除光标处到行尾，及<code>[count]-1</code>行内容（存入寄存器）</td>
+<td><code>D</code></td>
+</tr>
+<tr>
+<td align="left"><code>dd</code></td>
+<td align="left">删除<code>[count]</code>行（存入寄存器）</td>
+<td><code>5dd</code></td>
+</tr>
+<tr>
+<td align="left"><code>y&lt;motion&gt;</code></td>
+<td align="left">复制<code>&lt;motion&gt;</code>覆盖的内容到寄存器</td>
+<td><code>y6k</code></td>
+</tr>
+<tr>
+<td align="left"><code>Y</code></td>
+<td align="left">复制<code>[count]</code>行到寄存器，通过<code>:map Y y$</code>实现复制光标处到行尾的内容</td>
+<td><code>Y</code></td>
+</tr>
+<tr>
+<td align="left"><code>yy</code></td>
+<td align="left">复制<code>[count]</code>行到寄存器</td>
+<td><code>5yy</code></td>
+</tr>
+<tr>
+<td align="left"><code>p</code></td>
+<td align="left">在光标后粘贴寄存器的内容</td>
+<td><code>p</code></td>
+</tr>
+<tr>
+<td align="left"><code>P</code></td>
+<td align="left">在光标前粘贴寄存器的内容</td>
+<td><code>P</code></td>
+</tr>
+<tr>
+<td align="left"><code>u</code></td>
+<td align="left">撤销上一次修改</td>
+<td><code>u</code></td>
+</tr>
+<tr>
+<td align="left"><code>U</code></td>
+<td align="left">恢复下一次修改</td>
+<td><code>U</code></td>
+</tr>
+<tr>
+<td align="left"><code>x</code></td>
+<td align="left">删除光标处字符</td>
+<td><code>x</code></td>
+</tr>
+</tbody>
+</table>
+<p>常见的动作如下表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Motion</th>
+<th align="left">功能</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>h</code></td>
+<td align="left">光标左移<code>[count]</code>个字符</td>
+<td align="left"><code>10h</code></td>
+</tr>
+<tr>
+<td align="left"><code>j</code></td>
+<td align="left">光标下移<code>[count]</code>行</td>
+<td align="left"><code>3j</code></td>
+</tr>
+<tr>
+<td align="left"><code>k</code></td>
+<td align="left">光标上移<code>[count]</code>行</td>
+<td align="left"><code>5k</code></td>
+</tr>
+<tr>
+<td align="left"><code>l</code></td>
+<td align="left">光标右移<code>[count]</code>个字符</td>
+<td align="left"><code>6l</code></td>
+</tr>
+<tr>
+<td align="left"><code>w</code></td>
+<td align="left">移到光标之后第<code>[count]</code>个单词开始位置</td>
+<td align="left"><code>2w</code></td>
+</tr>
+<tr>
+<td align="left"><code>b</code></td>
+<td align="left">移到光标之前第<code>[count]</code>个单词开始位置</td>
+<td align="left"><code>5b</code></td>
+</tr>
+<tr>
+<td align="left"><code>e</code></td>
+<td align="left">移到光标之后第<code>[count]</code>个单词结束位置</td>
+<td align="left"><code>6e</code></td>
+</tr>
+<tr>
+<td align="left"><code>f&lt;c&gt;</code></td>
+<td align="left">移到当前行光标之后第<code>[count]</code>个<code>&lt;c&gt;</code>字符处</td>
+<td align="left"><code>2f,</code></td>
+</tr>
+<tr>
+<td align="left"><code>F&lt;c&gt;</code></td>
+<td align="left">移到当前行光标之前第<code>[count]</code>个<code>&lt;c&gt;</code>字符处</td>
+<td align="left"><code>3F#</code></td>
+</tr>
+<tr>
+<td align="left"><code>t&lt;c&gt;</code></td>
+<td align="left">移到当前行光标之后第<code>[count]</code>个<code>&lt;c&gt;</code>字符前一个位置处</td>
+<td align="left"><code>2ti</code></td>
+</tr>
+<tr>
+<td align="left"><code>T&lt;c&gt;</code></td>
+<td align="left">移到当前行光标之前第<code>[count]</code>个<code>&lt;c&gt;</code>字符后一个位置处</td>
+<td align="left"><code>5Te</code></td>
+</tr>
+<tr>
+<td align="left"><code>i&lt;c&gt;</code></td>
+<td align="left">覆盖光标所在<code>&lt;c&gt;</code>包含的跨度范围，<code>&lt;c&gt;</code>通常是<code>w</code>、<code>'</code>、<code>&quot;</code>等，必须在操作指令之后</td>
+<td align="left"><code>yiw</code></td>
+</tr>
+</tbody>
+</table>
+<p>常见的位置指令如下表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Position</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>gg</code></td>
+<td align="left">光标跳到文件首行</td>
+</tr>
+<tr>
+<td align="left"><code>G</code></td>
+<td align="left">光标跳到文件末行</td>
+</tr>
+<tr>
+<td align="left"><code>0</code></td>
+<td align="left">光标跳到当前行的起始位置</td>
+</tr>
+<tr>
+<td align="left"><code>^</code></td>
+<td align="left">光标跳到当前行起始的第一个非空字符处</td>
+</tr>
+<tr>
+<td align="left"><code>$</code></td>
+<td align="left">光标跳到当前行结束位置</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;C-i&gt;</code></td>
+<td align="left">光标前进到下一个停留位置，类似于<code>&lt;Next&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;C-o&gt;</code></td>
+<td align="left">光标后退到上一个停留位置，类似于<code>&lt;Prev&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-3">常用命令</h3>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>w</code></td>
+<td align="left">保存</td>
+</tr>
+<tr>
+<td align="left"><code>w!</code></td>
+<td align="left">强制保存</td>
+</tr>
+<tr>
+<td align="left"><code>q</code></td>
+<td align="left">退出</td>
+</tr>
+<tr>
+<td align="left"><code>q!</code></td>
+<td align="left">强制退出</td>
+</tr>
+<tr>
+<td align="left"><code>wq</code></td>
+<td align="left">保存并退出</td>
+</tr>
+<tr>
+<td align="left"><code>wq!</code></td>
+<td align="left">强制保存并退出</td>
+</tr>
+<tr>
+<td align="left"><code>set paste</code></td>
+<td align="left">粘贴模式，<code>autoindent</code>不起作用</td>
+</tr>
+<tr>
+<td align="left"><code>set nopaste</code></td>
+<td align="left">非粘贴模式</td>
+</tr>
+<tr>
+<td align="left"><code>edit &lt;path&gt;</code></td>
+<td align="left">覆盖当前会话，打开新文件</td>
+</tr>
+<tr>
+<td align="left"><code>split &lt;path&gt;</code></td>
+<td align="left">横向分割窗口，打开新文件</td>
+</tr>
+<tr>
+<td align="left"><code>vsplit &lt;path&gt;</code></td>
+<td align="left">竖向分割窗口，打开新文件</td>
+</tr>
+<tr>
+<td align="left"><code>diffsplit &lt;path&gt;</code></td>
+<td align="left">分割窗口，对比当前文件和新文件，显示文件的差异 <!-- raw HTML omitted --> 默认横向分割窗口，设置<code>diffopt+=vertical</code>可以竖向分割窗口</td>
+</tr>
+<tr>
+<td align="left"><code>tabedit &lt;path&gt;</code></td>
+<td align="left">在新标签打开新文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-4">匹配模式</h3>
+<p>文本的搜索和替换一般都会用到正则匹配，搜索和替换的基本命令如下。</p>
+<ul>
+<li><code>/&lt;pattern&gt;</code>，在当前文件中搜索模式<code>&lt;pattern&gt;</code>。
+<ul>
+<li><code>/\C&lt;pattern&gt;</code>，搜索模式大小写敏感，如模式<code>centos</code>不能匹配<code>CentOS</code>、<code>centOS</code>、<code>Centos</code>等。</li>
+<li><code>/\c&lt;pattern&gt;</code>，搜索模式大小写不敏感，如模式<code>CentOS</code>可以匹配<code>centos</code>、<code>centOS</code>、<code>Centos</code>等。</li>
+</ul>
+</li>
+<li><code>:[pos]s/&lt;pattern1&gt;/&lt;pattern2&gt;/[opt]</code>，在当前文件中搜索模式<code>&lt;pattern1&gt;</code>，将其替换为<code>&lt;pattern2&gt;</code>。
+<ul>
+<li>pos是搜索替换的范围，<code>%</code>代表文档所有行；<code>5</code>代表第5行；<code>3,20</code>表示文档第3行到第20行；<code>.</code>代表当前行；<code>$</code>表示文档最后一行。</li>
+<li>opt是替换选项，<code>c</code>表示替换前确认；<code>g</code>表示全局，替换/统计每行所有匹配项；<code>n</code>表示匹配项计数。</li>
+</ul>
+</li>
+</ul>
+<p>常用的正则匹配符如下表。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Regex</th>
+<th align="left">匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>^</code></td>
+<td align="left">当前行行首</td>
+</tr>
+<tr>
+<td align="left"><code>$</code></td>
+<td align="left">当前行行尾</td>
+</tr>
+<tr>
+<td align="left"><code>\s</code></td>
+<td align="left">空格、Tab等任意一个空字符</td>
+</tr>
+<tr>
+<td align="left"><code>\d</code></td>
+<td align="left">0-9任意一个数字字符</td>
+</tr>
+<tr>
+<td align="left"><code>\+</code></td>
+<td align="left">一个或多个重复模式</td>
+</tr>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">零个或多个重复模式</td>
+</tr>
+<tr>
+<td align="left"><code>.</code></td>
+<td align="left">任意一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>[abc]</code></td>
+<td align="left">范围内任意一个字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-5">折叠</h3>
+<table>
+<thead>
+<tr>
+<th align="left">指令</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>za</code></td>
+<td align="left">打开/关闭当前的折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zc</code></td>
+<td align="left">关闭当前打开的折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zo</code></td>
+<td align="left">打开当前的折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zm</code></td>
+<td align="left">关闭所有折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zM</code></td>
+<td align="left">关闭所有折叠和内部嵌套的折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zr</code></td>
+<td align="left">打开所有折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zR</code></td>
+<td align="left">打开所有折叠和内部嵌套的折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zd</code></td>
+<td align="left">删除当前折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zE</code></td>
+<td align="left">删除所有折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zj</code></td>
+<td align="left">移动到下一个折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zk</code></td>
+<td align="left">移动到上一个折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zn</code></td>
+<td align="left">禁用折叠</td>
+</tr>
+<tr>
+<td align="left"><code>zN</code></td>
+<td align="left">启用折叠</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-6">其它</h3>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@:</code></td>
+<td>重复上一次的Command命令</td>
+</tr>
+<tr>
+<td><code>@@</code></td>
+<td>再次重复上一次的Command命令</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>重复上一次的操作指令</td>
+</tr>
+<tr>
+<td><code>q&lt;c&gt;...q</code></td>
+<td>录制宏并绑定到<code>&lt;c&gt;</code></td>
+</tr>
+<tr>
+<td><code>@&lt;c&gt;</code></td>
+<td>执行<code>&lt;c&gt;</code>绑定的宏操作</td>
+</tr>
+</tbody>
+</table>
+<h2 id="heading-7">常用插件</h2>
+<table>
+<thead>
+<tr>
+<th align="left">插件</th>
+<th align="left">操作</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">nerdtree</td>
+<td align="left"><code>tt</code></td>
+<td align="left">显示文件导航窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>o</code></td>
+<td align="left">打开文件、目录或书签，并跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>O</code></td>
+<td align="left">递归打开节点下的所有目录</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>go</code></td>
+<td align="left">在当前窗口打开文件，但不跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>t</code></td>
+<td align="left">在新Tab打开文件、书签，并跳到新Tab</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>T</code></td>
+<td align="left">在新Tab打开文件、书签，但不跳到新Tab</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>i</code></td>
+<td align="left">横向分割新窗口打开文件，并跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>gi</code></td>
+<td align="left">横向分割新窗口打开文件，但不跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>s</code></td>
+<td align="left">纵向分割新窗口打开文件，并跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>gs</code></td>
+<td align="left">纵向分割新窗口打开文件，但不跳到该窗口</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>x</code></td>
+<td align="left">关闭当前节点的目录</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>X</code></td>
+<td align="left">递归关闭节点下的所有目录</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>!</code></td>
+<td align="left">执行当前文件</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>m</code></td>
+<td align="left">文件操作：复制、删除、移动等</td>
+</tr>
+<tr>
+<td align="left">vista</td>
+<td align="left"><code>&lt;Leader&gt;vt</code></td>
+<td align="left">显示函数、变量、标签窗口</td>
+</tr>
+<tr>
+<td align="left">nerdcommenter</td>
+<td align="left"><code>&lt;Leader&gt;cc</code></td>
+<td align="left">用Visual模式选中多行，注释选中行</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>&lt;Leader&gt;cu</code></td>
+<td align="left">用Visual模式选中多行，取消选中行的注释</td>
+</tr>
+<tr>
+<td align="left">surround</td>
+<td align="left"><code>ys</code> + <code>w[</code></td>
+<td align="left">将光标处单词用<code>[]</code>括起来，<code>ys</code>可配合光标移动</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>yss</code> + <code>(</code></td>
+<td align="left">将当前行用<code>()</code>括起来</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>cs</code> + <code>&lt;q&gt;&quot;</code></td>
+<td align="left">将括号<code>&lt;q&gt;&lt;/q&gt;</code>替换为<code>&quot;</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>yS</code> <code>ySS</code> <code>cS</code></td>
+<td align="left">分别与<code>ys</code>、<code>yss</code>和<code>cs</code>作用相同，只是括号内文本做新一行</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>ds</code> + <code>'</code></td>
+<td align="left">删除包含光标位置的括号<code>'</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>S</code> + <code>&quot;</code></td>
+<td align="left">Visual模式下，将选中内容括起来</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>gS</code></td>
+<td align="left">Visual模式下，与<code>S</code>作用相同，只是括号内文本做新一行</td>
+</tr>
+<tr>
+<td align="left">wildfire</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">table-mode</td>
+<td align="left"><code>&lt;Leader&gt;tm</code></td>
+<td align="left">开启/关闭表格模式</td>
+</tr>
+<tr>
+<td align="left">markdown-preview</td>
+<td align="left"><code>&lt;Leader&gt;mp</code></td>
+<td align="left">在浏览器预览当前markdown文件</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

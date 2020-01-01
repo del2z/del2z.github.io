@@ -1,0 +1,61 @@
+## =============================================================================
+## Custom settings for zsh
+## =============================================================================
+export TERM=xterm-256color
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+## add macports and neovim
+## =============================================================================
+if [[ ! $PATH =~ "/opt/local/bin:/opt/local/sbin" ]]; then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+fi
+if [[ ! $PATH =~ "/opt/nvim/bin" ]]; then
+    export PATH="/opt/nvim/bin:$PATH"
+fi
+
+## conda settings
+## !! Contents within this block are managed by 'conda init' !!
+## =============================================================================
+__conda_setup="$('/opt/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
+        . "/opt/conda/etc/profile.d/conda.sh"
+    elif [[ ! $PATH =~ "/opt/conda/bin" ]]; then
+        export PATH="/opt/conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [[ `conda env list | grep "^main" | wc -l` -eq 1 ]]; then
+    conda activate main
+fi
+
+## julia settings
+## =============================================================================
+if [[ ! $PATH =~ "/Applications/Julia-1.0.app/Contents/Resources/julia/bin" ]]; then
+    export PATH="/Applications/Julia-1.0.app/Contents/Resources/julia/bin:$PATH"
+fi
+export JULIA_DEPOT_PATH="/opt/julia"
+
+## start jupyter
+## =============================================================================
+function startup {
+    if [[ `ps -ef | grep "jupyter-notebook" | wc -l` -lt 2 ]]; then
+        nohup jupyter notebook --browser='Safari' --notebook-dir='/Users/del2z/Workspace' >/dev/null &
+    else
+        open -a Safari http://localhost:8888/tree
+    fi
+}
+
+## command aliases
+## =============================================================================
+alias cls="clear"
+alias vim="nvim"
+alias vi="nvim"
+alias grep="grep --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+

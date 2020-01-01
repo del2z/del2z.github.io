@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on 小小的梦想</title>
+    <link>https://del2z.github.io/tool/</link>
+    <description>Recent content in Tools on 小小的梦想</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    
+	<atom:link href="https://del2z.github.io/tool/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/crfpp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/crfpp/</guid>
+      <description>CRF++ CRF++安装 从CRF++官网下载linux版本源码，再将源码本地解压并安装。
+crf++的安装依赖gcc、make。
+tar -zxvf CRF++-xxx.tar.gz cd CRF++-xxx ./configure --prefix=/usr/local make (su) make install 安装python包 cd python python setup.py build (su) python setup.py install .so依赖问题 出现xxx错误时，是因为程序找不到依赖的.so库文件，按如下方式解决。
+(su) ln -s /usr/local/lib/libcrfpp.so.* /usr/lib64/ CRF++使用 CRF++采用BIO标记命名实体，需要配置一个template文件，用于提取训练特征。
+template文件
+输入格式
+输出格式</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/hadoop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/hadoop/</guid>
+      <description>Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Hadoop类似，Streaming一般包括map和reduce两个阶段。 在map阶段，处理脚本直接从标准输入读入输入文件，进行transform、filter之类处理，将结果打印到标准输出。Streaming会根据输出内容，解析成Key-Value对，默认的分隔符是\t。若每行有多个\t分隔的列，第一个\t之前的内容作为Key，之后的作为Value；若每行没有\t分隔符，则在行尾自动添加\t，Key为\t之前的内容，Value为空。Hadoop根据Key排序分桶，再将数据传输到不同的reduce机器。在reduce阶段，处理脚本从标准输入读取数据，进行reduce、group等处理，将结果打印到标准输出。Streaming自动将输出内容存储包输出文件中。
+Map Reduce 实践技巧 自定义python环境 通过conda创建python环境，并安装相关的包，然后打包python环境。
+conda create -n py_env python=3.6.8 ## 采用pip安装软件包 /path/to/conda/envs/py_env/bin/pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple ## 采用conda安装软件包 conda install scipy spacy -n py_env cd /path/to/conda/envs tar cxf env.tar.gz py_env 通常将python环境env.tar.gz上传到HDFS，避免本地文件误删导致任务失败。
+在Streaming运行命令中，指定脚本运行python环境。
+HADOOP_STREAM=&amp;#39;/path/to/hadoop-streaming/jar&amp;#39; hadoop jar $HADOOP_STREAM \  -archives &amp;#34;hdfs://host:port/path/to/env.tar.gz#env&amp;#34; \  -D mapreduce.job.name=$JOB_NAME \  -D mapreduce.job.maps=10 \  -D mapreduce.job.reduces=5 \  -files ./mapper.py,./reducer.py \  -mapper &amp;#34;env/py_env/bin/python mapper.py&amp;#34; \  -reducer &amp;#34;env/py_env/bin/python reducer.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/julia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/julia/</guid>
+      <description>Julia入门指导 设计原理 数据类型 广播 元编程 任务管理 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/pandas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/pandas/</guid>
+      <description>Pandas常用函数    功能 函数 参数 示例     读文件 read_csv     写文件 to_csv     行列统计      列名      重命名列      选择行列      ^      删除行列      重置索引      变换列      合并      分组      聚合       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/pytorch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/pytorch/</guid>
+      <description>Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映射以及笛卡儿积等。张量一般有多个维度，零维张量是标量，一维是向量，二维是矩阵。Pytorch的基本数据结构就是张量。
+Function Function通常只定义一个操作，因其无法保存参数，因此适用于激活函数、pooling等操作。自定义Function时，需要重载三个方法：__init__、forward和backward。
+Module Function与Module都可以对pytorch进行自定义拓展，使其满足网络的需求，但这两者还是有十分重要的不同：
+ Function一般只定义一个操作，因为其无法保存参数，因此适用于激活函数、pooling等操作；Module是保存了参数，因此适合于定义一层，如线性层，卷积层，也适用于定义一个网络 Function需要定义三个方法：init, forward, backward（需要自己写求导公式）；Module：只需定义init和forward，而backward的计算由自动求导机制构成 可以不严谨的认为，Module是由一系列Function组成，因此其在forward的过程中，Function和Variable组成了计算图，在backward时，只需调用Function的backward就得到结果，因此Module不需要再定义backward。 Module不仅包括了Function，还包括了对应的参数，以及其他函数与变量，这是Function所不具备的。 module 是 pytorch 组织神经网络的基本方式。Module 包含了模型的参数以及计算逻辑。Function 承载了实际的功能，定义了前向和后向的计算逻辑。 Module 是任何神经网络的基类，pytorch 中所有模型都必需是 Module 的子类。 Module 可以套嵌，构成树状结构。一个 Module 可以通过将其他 Module 做为属性的方式，完成套嵌。 Function 是 pytorch 自动求导机制的核心类。Function 是无参数或者说无状态的，它只负责接收输入，返回相应的输出；对于反向，它接收输出相应的梯度，返回输入相应的梯度。 在调用loss.backward()时，使用的是Function子类中定义的backward()函数。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/spark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/spark/</guid>
+      <description>Spark入门指南 数据结构 SparkContext RDD Transformations Shuffles Actions Streaming Mllib </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://del2z.github.io/tool/tensorflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://del2z.github.io/tool/tensorflow/</guid>
+      <description>Tensorflow Dropout Softmax Mask </description>
+    </item>
+    
+  </channel>
+</rss>

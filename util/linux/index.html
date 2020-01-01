@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <title> // 小小的梦想</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="del2z" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Linux常用命令    功能 命令 选项 用例     文本检索 grep -r/-R 递归检索子文件夹的文件 -n 显示行号 grep -rn &#39;centos&#39; .   文本排序 sort -t 分隔符 -k 排序字段编号 -u 不打印重复记录 -n 按数值排序字段 -r 按逆序排序 sort -t$&#39;\t&#39; -k1n -k2nr file   字段分割 cut -d 分隔符 -f 打印字段编号 -b 打印字节编号 -c 打印字符编号 cut -d$&#39;\t&#39; -f2-4 infile &gt; outfile   文件查看 cat -v 显示控制、删除及非ASCII字符 -e 行尾显示$ -t 制表符显示为^I cat -vet somefile   ^ head -n K或-K 显示文件头部K行，默认为10 head -5 somefile   ^ tail -n K或-K 显示文件尾部K行，默认为10 -f 跟踪显示输出 tail -5 somefile   文件编码 iconv -f 源文件编码 -t 目标文件编码 -o 输出文件 iconv -f gb18030 -t utf-8 -o tofile fromfile   远程登录 ssh -P xxx 连接端口号 ssh -P 3022 root@192."/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Linux常用命令    功能 命令 选项 用例     文本检索 grep -r/-R 递归检索子文件夹的文件 -n 显示行号 grep -rn &#39;centos&#39; .   文本排序 sort -t 分隔符 -k 排序字段编号 -u 不打印重复记录 -n 按数值排序字段 -r 按逆序排序 sort -t$&#39;\t&#39; -k1n -k2nr file   字段分割 cut -d 分隔符 -f 打印字段编号 -b 打印字节编号 -c 打印字符编号 cut -d$&#39;\t&#39; -f2-4 infile &gt; outfile   文件查看 cat -v 显示控制、删除及非ASCII字符 -e 行尾显示$ -t 制表符显示为^I cat -vet somefile   ^ head -n K或-K 显示文件头部K行，默认为10 head -5 somefile   ^ tail -n K或-K 显示文件尾部K行，默认为10 -f 跟踪显示输出 tail -5 somefile   文件编码 iconv -f 源文件编码 -t 目标文件编码 -o 输出文件 iconv -f gb18030 -t utf-8 -o tofile fromfile   远程登录 ssh -P xxx 连接端口号 ssh -P 3022 root@192." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://del2z.github.io/util/linux/" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://del2z.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="del2z" /></a>
+      <h1>小小的梦想</h1>
+      <p>del2z的个人站点，记录走过的路、踩过的坑、做过的事、吃过的苦，一路收获，一路成长。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/del2z" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title"></h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jan 1, 0001
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="linux">Linux常用命令</h1>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">命令</th>
+<th align="left">选项</th>
+<th>用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">文本检索</td>
+<td align="left"><code>grep</code></td>
+<td align="left"><code>-r/-R</code> 递归检索子文件夹的文件 <!-- raw HTML omitted --> <code>-n</code> 显示行号</td>
+<td><code>grep -rn 'centos' .</code></td>
+</tr>
+<tr>
+<td align="left">文本排序</td>
+<td align="left"><code>sort</code></td>
+<td align="left"><code>-t</code> 分隔符 <!-- raw HTML omitted --> <code>-k</code> 排序字段编号 <!-- raw HTML omitted --> <code>-u</code> 不打印重复记录 <!-- raw HTML omitted --> <code>-n</code> 按数值排序字段 <!-- raw HTML omitted --> <code>-r</code> 按逆序排序</td>
+<td><code>sort -t$'\t' -k1n -k2nr file</code></td>
+</tr>
+<tr>
+<td align="left">字段分割</td>
+<td align="left"><code>cut</code></td>
+<td align="left"><code>-d</code> 分隔符 <!-- raw HTML omitted --> <code>-f</code> 打印字段编号 <!-- raw HTML omitted --> <code>-b</code> 打印字节编号 <!-- raw HTML omitted --> <code>-c</code> 打印字符编号</td>
+<td><code>cut -d$'\t' -f2-4 infile &gt; outfile</code></td>
+</tr>
+<tr>
+<td align="left">文件查看</td>
+<td align="left"><code>cat</code></td>
+<td align="left"><code>-v</code> 显示控制、删除及非ASCII字符 <!-- raw HTML omitted --> <code>-e</code> 行尾显示$ <!-- raw HTML omitted --> <code>-t</code> 制表符显示为^I</td>
+<td><code>cat -vet somefile</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>head</code></td>
+<td align="left"><code>-n K</code>或<code>-K</code> 显示文件头部K行，默认为10</td>
+<td><code>head -5 somefile</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>tail</code></td>
+<td align="left"><code>-n K</code>或<code>-K</code> 显示文件尾部K行，默认为10 <!-- raw HTML omitted --> <code>-f</code> 跟踪显示输出</td>
+<td><code>tail -5 somefile</code></td>
+</tr>
+<tr>
+<td align="left">文件编码</td>
+<td align="left"><code>iconv</code></td>
+<td align="left"><code>-f</code> 源文件编码 <!-- raw HTML omitted --> <code>-t</code> 目标文件编码 <!-- raw HTML omitted --> <code>-o</code> 输出文件</td>
+<td><code>iconv -f gb18030 -t utf-8 -o tofile fromfile</code></td>
+</tr>
+<tr>
+<td align="left">远程登录</td>
+<td align="left"><code>ssh</code></td>
+<td align="left"><code>-P xxx</code> 连接端口号</td>
+<td><code>ssh -P 3022 root@192.168.0.1</code></td>
+</tr>
+<tr>
+<td align="left">密钥生成</td>
+<td align="left"><code>ssh-keygen</code></td>
+<td align="left"></td>
+<td><code>ssh-keygen</code></td>
+</tr>
+<tr>
+<td align="left">信任关系建立</td>
+<td align="left"><code>ssh-copy-id</code></td>
+<td align="left"></td>
+<td><code>ssh-copy-id -i root@192.168.0.1</code></td>
+</tr>
+<tr>
+<td align="left">远程传输</td>
+<td align="left"><code>scp</code></td>
+<td align="left"><code>-r</code> 递归传输子文件夹的文件；上传：本地 -&gt; 远程，下载：远程 -&gt; 本地</td>
+<td><code>scp -r root@192.168.0.1:/path/to/file_or_folder local_file_or_folder</code></td>
+</tr>
+<tr>
+<td align="left">文件下载</td>
+<td align="left"><code>wget</code></td>
+<td align="left"></td>
+<td><code>wget https://github.com/path/to/file</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>curl</code></td>
+<td align="left"><code>-L</code> <!-- raw HTML omitted --> <code>-O</code> <!-- raw HTML omitted --> <code>-o</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">文件压缩</td>
+<td align="left"><code>zip</code></td>
+<td align="left"><code>-r</code> 递归压缩子目录下的文件</td>
+<td><code>zip -r archive.zip files</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>tar</code></td>
+<td align="left"><code>-c</code> 创建压缩档 <!-- raw HTML omitted --> <code>-z</code> 用gzip压缩 <!-- raw HTML omitted --> <code>-j</code> 用bzip2压缩 <!-- raw HTML omitted --> <code>-v</code> 显示执行过程 <!-- raw HTML omitted --> <code>-f</code> 输出文件名称</td>
+<td><code>tar -czvf archive.tar.gz files</code></td>
+</tr>
+<tr>
+<td align="left">文件解压缩</td>
+<td align="left"><code>unzip</code></td>
+<td align="left"><code>-t</code> 测试压缩包，不解压</td>
+<td><code>unzip archive.zip</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>tar</code></td>
+<td align="left"><code>-x</code> 解压缩 <!-- raw HTML omitted --> <code>-z</code> 用gzip压缩 <!-- raw HTML omitted --> <code>-j</code> 用bzip2压缩 <!-- raw HTML omitted --> <code>-v</code> 显示执行过程 <!-- raw HTML omitted --> <code>-f</code> 输入压缩档文件 <!-- raw HTML omitted --> <code>-t</code> 列出压缩档包含的文件</td>
+<td><code>tar -xjvf archive.tar.bz2</code></td>
+</tr>
+<tr>
+<td align="left">定时任务</td>
+<td align="left"><code>cron</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>crontab</code></td>
+<td align="left"><code>-u USER</code> 设定用户的crontab服务 <!-- raw HTML omitted --> <code>-e</code> 编辑用户的crontab文件 <!-- raw HTML omitted --> <code>-l</code> 显示用户的crontab文件内容</td>
+<td><code>crontab -u root cron_file</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>crontab</code></td>
+<td align="left"><code>M H d m w command [arg...]</code>，<code>M</code>为分钟0~59，<code>H</code>为小时0~23，<code>d</code>为日1~31，<code>m</code>为月1~12，<code>w</code>为周0~7（0和7为星期日）</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">后台任务</td>
+<td align="left"><code>nohup</code></td>
+<td align="left"><code>1</code> 标准输出 <!-- raw HTML omitted --> <code>2</code> 标准错误 <!-- raw HTML omitted --> <code>/dev/null</code> 空设备，不需要输出日志时，重定向到此处</td>
+<td><code>nohup sh run.sh 1&gt;nohup.log &gt;&amp;1 &amp;</code></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>&amp;</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">进程查看</td>
+<td align="left"><code>top</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left"><code>ps</code></td>
+<td align="left"><code>-e</code> <!-- raw HTML omitted --> <code>-f</code> <!-- raw HTML omitted --> <code>aux</code></td>
+<td><code>ps -ef</code></td>
+</tr>
+<tr>
+<td align="left">进程终止</td>
+<td align="left"><code>kill</code></td>
+<td align="left"><code>-6</code> <!-- raw HTML omitted --> <code>-9</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">网络查看</td>
+<td align="left"><code>netstat</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">连接测试</td>
+<td align="left"><code>ping</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">网络设置</td>
+<td align="left"><code>ifconfig</code></td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="heading">其它规则</h2>
+<ul>
+<li>管道，将一个命令的输出传递到下一个命令的输入。</li>
+<li>重定向，将命令的标准输出/标准错误内容导入其它文件。</li>
+</ul>
+<h2 id="heading-1">有用的命令</h2>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>for code ({000..255}) print -P -- &quot;$code: %F{$code}This is how your text would look like%f&quot;</code></td>
+<td align="left">显示shell颜色编码</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
