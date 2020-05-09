@@ -3,25 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="信息论 基础知识 条件概率 条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$P(A | B)$表示。
-Bayes公式 全概率公式 指标 熵 $$ H(X) = \mathbb{E}_X [ -\log p(x) ] = -\sum_x p(x) \log p(x) $$
-联合熵 $$ H(X, Y) = \mathbb{E}{X, Y} [ -\log p(x, y) ] = -\sum{x,, y} p(x, y) \log p(x, y) $$
-条件熵 $$ H(X | Y) = \mathbb{E}Y [ H(X | y) ] = -\sum_y p(y) \sum_x p(x | y) \log p(x | y) = -\sum{x,, y} p(x, y) \log p(x | y) \[5pt] H(X | Y) = -\sum_{x,, y} p(x, y) \log \frac{p(x, y)}{p(y)} = -\sum_{x,, y} p(x, y) \log p(x, y) &#43; \sum_y \log p(y) \sum_x p(x, y) = H(X, Y) - H(Y) $$"/>
+<meta name="twitter:description" content="信息论 基础知识 条件概率 条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="信息论 基础知识 条件概率 条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$P(A | B)$表示。
-Bayes公式 全概率公式 指标 熵 $$ H(X) = \mathbb{E}_X [ -\log p(x) ] = -\sum_x p(x) \log p(x) $$
-联合熵 $$ H(X, Y) = \mathbb{E}{X, Y} [ -\log p(x, y) ] = -\sum{x,, y} p(x, y) \log p(x, y) $$
-条件熵 $$ H(X | Y) = \mathbb{E}Y [ H(X | y) ] = -\sum_y p(y) \sum_x p(x | y) \log p(x | y) = -\sum{x,, y} p(x, y) \log p(x | y) \[5pt] H(X | Y) = -\sum_{x,, y} p(x, y) \log \frac{p(x, y)}{p(y)} = -\sum_{x,, y} p(x, y) \log p(x, y) &#43; \sum_y \log p(y) \sum_x p(x, y) = H(X, Y) - H(Y) $$" />
+<meta property="og:description" content="信息论 基础知识 条件概率 条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/algorithm/information-theory/" />
 
@@ -64,43 +58,43 @@ Bayes公式 全概率公式 指标 熵 $$ H(X) = \mathbb{E}_X [ -\log p(x) ] = -
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="heading">信息论</h1>
-<h2 id="heading-1">基础知识</h2>
-<h3 id="heading-2">条件概率</h3>
+      <h1 id="信息论">信息论</h1>
+<h2 id="基础知识">基础知识</h2>
+<h3 id="条件概率">条件概率</h3>
 <p>条件概率（Conditional probability）就是指在事件$B$发生的情况下，另一事件$A$发生的概率，用$P(A | B)$表示。</p>
-<h3 id="bayes">Bayes公式</h3>
-<h3 id="heading-3">全概率公式</h3>
-<h2 id="heading-4">指标</h2>
-<h3 id="heading-5">熵</h3>
+<h3 id="bayes公式">Bayes公式</h3>
+<h3 id="全概率公式">全概率公式</h3>
+<h2 id="指标">指标</h2>
+<h3 id="熵">熵</h3>
 <p>$$
 H(X) = \mathbb{E}_X [ -\log p(x) ] = -\sum_x p(x) \log p(x)
 $$</p>
-<h3 id="heading-6">联合熵</h3>
+<h3 id="联合熵">联合熵</h3>
 <p>$$
 H(X, Y) = \mathbb{E}<em>{X, Y} [ -\log p(x, y) ] = -\sum</em>{x,, y} p(x, y) \log p(x, y)
 $$</p>
-<h3 id="heading-7">条件熵</h3>
+<h3 id="条件熵">条件熵</h3>
 <p>$$
 H(X | Y) = \mathbb{E}<em>Y [ H(X | y) ] = -\sum_y p(y) \sum_x p(x | y) \log p(x | y) = -\sum</em>{x,, y} p(x, y) \log p(x | y) \[5pt]
 H(X | Y) = -\sum_{x,, y} p(x, y) \log \frac{p(x, y)}{p(y)} = -\sum_{x,, y} p(x, y) \log p(x, y) + \sum_y \log p(y) \sum_x p(x, y)  = H(X, Y) - H(Y)
 $$</p>
-<h3 id="heading-8">交叉熵</h3>
+<h3 id="交叉熵">交叉熵</h3>
 <p>$$
 H(p, q) = \mathbb{E}<em>p [ -\log q(x) ] = -\sum</em>{x} p(x) \log q(x)
 $$</p>
-<h3 id="heading-9">相对熵</h3>
+<h3 id="相对熵">相对熵</h3>
 <p>$$
 H(X) = \mathbb{E}<em>{X} [ -\log p(x) ] = -\sum</em>{x} p(x) \log p(x)
 $$</p>
-<h3 id="heading-10">互信息</h3>
+<h3 id="互信息">互信息</h3>
 <p>$$
 I(X, Y) = \mathbb{E}<em>{X, Y} [ \mathrm{pmi}(x, y) ] = \sum</em>{x,, y} p(x, y) \log \frac{p(x, y)}{p(x) p(y)}
 $$</p>
-<h3 id="kl">KL散度</h3>
+<h3 id="kl散度">KL散度</h3>
 <p>$$
 D(p || q) = -\sum_{x} p(x) \log p(x)
 $$</p>
-<h3 id="heading-11"></h3>
+<h3 id="heading"></h3>
 
     </div>
     <div class="post-footer">

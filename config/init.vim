@@ -3,6 +3,14 @@
 " ===============================================================================
 set nocompatible
 
+" Load plugin manager
+" ===============================================================================
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Plugin manager
 " ===============================================================================
 call plug#begin('~/.config/nvim/plugged')
@@ -33,7 +41,7 @@ call plug#end()
 
 " Global ENV
 " ===============================================================================
-let g:python3_host_prog='/opt/conda/envs/main/bin/python'
+let g:python3_host_prog='/opt/miniconda/bin/python3'
 let g:node_host_prog='/usr/local/lib/node_modules/neovim/bin/cli.js'
 
 " Key bindings
@@ -114,7 +122,7 @@ set splitbelow
 set splitright
 
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=3
 set nofoldenable
 set laststatus=2
 set wildmenu
@@ -186,6 +194,7 @@ let NERDTreeIgnore=['\.Trash', '\.cache', '\.DS_Store', '\.CFUserTextEncoding', 
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" close NERDTree when it's the last window
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " need vim-devicons
@@ -199,8 +208,13 @@ let g:indentLine_char='┆'
 
 " Vista settings
 " ===============================================================================
-map <Leader>vv :Vista<CR>
+map <Leader>vv :Vista!!<CR>
 let g:vista_default_executive='ctags'
+
+" close Vista when it's the last window
+autocmd BufEnter * if (winnr("$") == 1 && vista#sidebar#IsOpen()) | q | endif
+" close NERDTree and Vista when they're the last two windows
+autocmd BufEnter * if (winnr("$") == 2 && exists("b:NERDTree") && b:NERDTree.isTabTree() && vista#sidebar#IsOpen()) | q | q | endif
 
 " coc settings
 " ===============================================================================
@@ -262,8 +276,8 @@ let g:table_mode_header_fillchar='-'
 " markdown-preview settings
 " ===============================================================================
 map <Leader>mp :MarkdownPreview<CR>
-let g:mkdp_markdown_css='~/.config/nvim/markdown-preview/markdown.css'
-let g:mkdp_highlight_css='~/.config/nvim/markdown-preview/monokai.css'
+let g:mkdp_markdown_css='/Users/del2z/.config/nvim/markdown-preview/markdown.css'
+let g:mkdp_highlight_css='/Users/del2z/.config/nvim/markdown-preview/monokai.css'
 let g:mkdp_port='10001'
 let g:mkdp_page_title='${name}-Preview'
 
