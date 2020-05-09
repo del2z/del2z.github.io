@@ -3,23 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="GPU环境安装 深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GPU有NVIDIA的Titan V、Tesla P40、Tesla V100等类型。 显卡驱动、CUDA、Tensorflow和Pytorch的安装都是在CentOS环境下进行。
-NVIDIA驱动安装 NVIDIA显卡驱动、CUDA工具包、Tensorflow之间有支持版本的限制，三者之间的版本依赖关系如下。
-   Linux Driver CUDA Tensorflow     &gt;= 418.39 10.1 (10.1.105)    &gt;= 410.48 10.0 (10.0.130)    &gt;= 396.26 9.2 (9.2.88)    &gt;= 390.46 9.1 (9.1.85)    &gt;= 384.81 9.0 (9.0.76)    &gt;= 375.26 8.0 (8.0.61 GA2)    &gt;= 367.48 8.0 (8.0.44)     注意：下载安装包之前，需要先确定显卡、CUDA、Tensorflow的版本，然后执行后面的步骤。"/>
+<meta name="twitter:description" content="GPU环境安装 深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GP"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="GPU环境安装 深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GPU有NVIDIA的Titan V、Tesla P40、Tesla V100等类型。 显卡驱动、CUDA、Tensorflow和Pytorch的安装都是在CentOS环境下进行。
-NVIDIA驱动安装 NVIDIA显卡驱动、CUDA工具包、Tensorflow之间有支持版本的限制，三者之间的版本依赖关系如下。
-   Linux Driver CUDA Tensorflow     &gt;= 418.39 10.1 (10.1.105)    &gt;= 410.48 10.0 (10.0.130)    &gt;= 396.26 9.2 (9.2.88)    &gt;= 390.46 9.1 (9.1.85)    &gt;= 384.81 9.0 (9.0.76)    &gt;= 375.26 8.0 (8.0.61 GA2)    &gt;= 367.48 8.0 (8.0.44)     注意：下载安装包之前，需要先确定显卡、CUDA、Tensorflow的版本，然后执行后面的步骤。" />
+<meta property="og:description" content="GPU环境安装 深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GP" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/util/cuda/" />
 
@@ -58,14 +54,14 @@ NVIDIA驱动安装 NVIDIA显卡驱动、CUDA工具包、Tensorflow之间有支�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="gpu">GPU环境安装</h1>
+      <h1 id="gpu环境安装">GPU环境安装</h1>
 <p>深度学习模型的应用和部署环境主要是Linux服务器的GPU上，工业界最常用的Linux服务器操作系统是CentOS，主要的GPU有NVIDIA的Titan V、Tesla P40、Tesla V100等类型。
 显卡驱动、CUDA、Tensorflow和Pytorch的安装都是在CentOS环境下进行。</p>
-<h2 id="nvidia">NVIDIA驱动安装</h2>
+<h2 id="nvidia驱动安装">NVIDIA驱动安装</h2>
 <p>NVIDIA显卡驱动、CUDA工具包、Tensorflow之间有支持版本的限制，三者之间的版本依赖关系如下。</p>
 <table>
 <thead>
@@ -121,16 +117,16 @@ yum clean all
 yum install cuda-drivers
 reboot
 </code></pre></div><p>重启后，显卡驱动安装完成！</p>
-<h2 id="cuda-toolkit">CUDA-Toolkit安装</h2>
+<h2 id="cuda-toolkit安装">CUDA-Toolkit安装</h2>
 <p>根据OS版本和CUDA版本，从<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA官网</a>下载工具包，直接安装即可。</p>
 <p>通过如下的命令检查显卡驱动和CUDA工具包，如有GPU使用信息和CUDA版本信息，说明安装正确。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nvidia-smi
 nvcc -V
-</code></pre></div><h2 id="tensorflow-gpu">Tensorflow-GPU安装</h2>
+</code></pre></div><h2 id="tensorflow-gpu安装">Tensorflow-GPU安装</h2>
 <p>利用<code>conda</code>安装Tensorflow的GPU版本，选择支持CUDA版本的Tensorflow包，相关的依赖包会自动安装。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>sudo<span style="color:#f92672">)</span> conda install tensorflow-gpu<span style="color:#f92672">=</span><span style="color:#f92672">=</span>xxx
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>sudo<span style="color:#f92672">)</span> conda install tensorflow-gpu<span style="color:#f92672">==</span>xxx
 </code></pre></div><p>安装完成后，Tensorflow就可以使用了。</p>
-<h2 id="pytorch-gpu">Pytorch-GPU安装</h2>
+<h2 id="pytorch-gpu安装">Pytorch-GPU安装</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">conda install pytorch torchvision cudatoolkit<span style="color:#f92672">=</span>9.2 -c pytorch
 </code></pre></div>
     </div>

@@ -3,31 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="CRF&#43;&#43; CRF&#43;&#43;安装 从CRF&#43;&#43;官网下载linux版本源码，再将源码本地解压并安装。
-crf&#43;&#43;的安装依赖gcc、make。
-tar -zxvf CRF&#43;&#43;-xxx.tar.gz cd CRF&#43;&#43;-xxx ./configure --prefix=/usr/local make (su) make install 安装python包 cd python python setup.py build (su) python setup.py install .so依赖问题 出现xxx错误时，是因为程序找不到依赖的.so库文件，按如下方式解决。
-(su) ln -s /usr/local/lib/libcrfpp.so.* /usr/lib64/ CRF&#43;&#43;使用 CRF&#43;&#43;采用BIO标记命名实体，需要配置一个template文件，用于提取训练特征。
-template文件
-输入格式
-输出格式"/>
+<meta name="twitter:description" content="CRF&#43;&#43; CRF&#43;&#43;安装 从CRF&#43;&#43;官网下载linux版本源码，再将源码本地解压并安装。 crf&#43;&#43;的安装依赖gcc、make。 tar -zxvf CRF&#43;&#43;-xxx.tar.gz cd CRF&#43;&#43;-xxx ./configure --prefix=/usr/local make (su) make install"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="CRF&#43;&#43; CRF&#43;&#43;安装 从CRF&#43;&#43;官网下载linux版本源码，再将源码本地解压并安装。
-crf&#43;&#43;的安装依赖gcc、make。
-tar -zxvf CRF&#43;&#43;-xxx.tar.gz cd CRF&#43;&#43;-xxx ./configure --prefix=/usr/local make (su) make install 安装python包 cd python python setup.py build (su) python setup.py install .so依赖问题 出现xxx错误时，是因为程序找不到依赖的.so库文件，按如下方式解决。
-(su) ln -s /usr/local/lib/libcrfpp.so.* /usr/lib64/ CRF&#43;&#43;使用 CRF&#43;&#43;采用BIO标记命名实体，需要配置一个template文件，用于提取训练特征。
-template文件
-输入格式
-输出格式" />
+<meta property="og:description" content="CRF&#43;&#43; CRF&#43;&#43;安装 从CRF&#43;&#43;官网下载linux版本源码，再将源码本地解压并安装。 crf&#43;&#43;的安装依赖gcc、make。 tar -zxvf CRF&#43;&#43;-xxx.tar.gz cd CRF&#43;&#43;-xxx ./configure --prefix=/usr/local make (su) make install" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/tool/crfpp/" />
 
@@ -71,7 +59,7 @@ template文件
     </header>
     <div class="post-content">
       <h1 id="crf">CRF++</h1>
-<h2 id="crf-1">CRF++安装</h2>
+<h2 id="crf安装">CRF++安装</h2>
 <p>从<a href="https://taku910.github.io/crfpp/">CRF++官网</a>下载linux版本源码，再将源码本地解压并安装。</p>
 <p>crf++的安装依赖gcc、make。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">tar -zxvf CRF++-xxx.tar.gz
@@ -79,14 +67,14 @@ cd CRF++-xxx
 ./configure --prefix<span style="color:#f92672">=</span>/usr/local
 make
 <span style="color:#f92672">(</span>su<span style="color:#f92672">)</span> make install
-</code></pre></div><h3 id="python">安装python包</h3>
+</code></pre></div><h3 id="安装python包">安装python包</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd python
 python setup.py build
 <span style="color:#f92672">(</span>su<span style="color:#f92672">)</span> python setup.py install
-</code></pre></div><h3 id="so">.so依赖问题</h3>
+</code></pre></div><h3 id="so依赖问题">.so依赖问题</h3>
 <p>出现<code>xxx</code>错误时，是因为程序找不到依赖的.so库文件，按如下方式解决。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">(</span>su<span style="color:#f92672">)</span> ln -s /usr/local/lib/libcrfpp.so.* /usr/lib64/
-</code></pre></div><h2 id="crf-2">CRF++使用</h2>
+</code></pre></div><h2 id="crf使用">CRF++使用</h2>
 <p>CRF++采用BIO标记命名实体，需要配置一个template文件，用于提取训练特征。</p>
 <p>template文件</p>
 <p>输入格式</p>

@@ -3,27 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Hadoop类似，Streaming一般包括map和reduce两个阶段。 在map阶段，处理脚本直接从标准输入读入输入文件，进行transform、filter之类处理，将结果打印到标准输出。Streaming会根据输出内容，解析成Key-Value对，默认的分隔符是\t。若每行有多个\t分隔的列，第一个\t之前的内容作为Key，之后的作为Value；若每行没有\t分隔符，则在行尾自动添加\t，Key为\t之前的内容，Value为空。Hadoop根据Key排序分桶，再将数据传输到不同的reduce机器。在reduce阶段，处理脚本从标准输入读取数据，进行reduce、group等处理，将结果打印到标准输出。Streaming自动将输出内容存储包输出文件中。
-Map Reduce 实践技巧 自定义python环境 通过conda创建python环境，并安装相关的包，然后打包python环境。
-conda create -n py_env python=3.6.8 ## 采用pip安装软件包 /path/to/conda/envs/py_env/bin/pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple ## 采用conda安装软件包 conda install scipy spacy -n py_env cd /path/to/conda/envs tar cxf env.tar.gz py_env 通常将python环境env.tar.gz上传到HDFS，避免本地文件误删导致任务失败。
-在Streaming运行命令中，指定脚本运行python环境。
-HADOOP_STREAM=&#39;/path/to/hadoop-streaming/jar&#39; hadoop jar $HADOOP_STREAM \  -archives &#34;hdfs://host:port/path/to/env.tar.gz#env&#34; \  -D mapreduce.job.name=$JOB_NAME \  -D mapreduce.job.maps=10 \  -D mapreduce.job.reduces=5 \  -files ./mapper.py,./reducer.py \  -mapper &#34;env/py_env/bin/python mapper.py&#34; \  -reducer &#34;env/py_env/bin/python reducer."/>
+<meta name="twitter:description" content="Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Had"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Hadoop类似，Streaming一般包括map和reduce两个阶段。 在map阶段，处理脚本直接从标准输入读入输入文件，进行transform、filter之类处理，将结果打印到标准输出。Streaming会根据输出内容，解析成Key-Value对，默认的分隔符是\t。若每行有多个\t分隔的列，第一个\t之前的内容作为Key，之后的作为Value；若每行没有\t分隔符，则在行尾自动添加\t，Key为\t之前的内容，Value为空。Hadoop根据Key排序分桶，再将数据传输到不同的reduce机器。在reduce阶段，处理脚本从标准输入读取数据，进行reduce、group等处理，将结果打印到标准输出。Streaming自动将输出内容存储包输出文件中。
-Map Reduce 实践技巧 自定义python环境 通过conda创建python环境，并安装相关的包，然后打包python环境。
-conda create -n py_env python=3.6.8 ## 采用pip安装软件包 /path/to/conda/envs/py_env/bin/pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple ## 采用conda安装软件包 conda install scipy spacy -n py_env cd /path/to/conda/envs tar cxf env.tar.gz py_env 通常将python环境env.tar.gz上传到HDFS，避免本地文件误删导致任务失败。
-在Streaming运行命令中，指定脚本运行python环境。
-HADOOP_STREAM=&#39;/path/to/hadoop-streaming/jar&#39; hadoop jar $HADOOP_STREAM \  -archives &#34;hdfs://host:port/path/to/env.tar.gz#env&#34; \  -D mapreduce.job.name=$JOB_NAME \  -D mapreduce.job.maps=10 \  -D mapreduce.job.reduces=5 \  -files ./mapper.py,./reducer.py \  -mapper &#34;env/py_env/bin/python mapper.py&#34; \  -reducer &#34;env/py_env/bin/python reducer." />
+<meta property="og:description" content="Hadoop入门指导 Streaming Streaming是Hadoop的流式处理工具，以标准输入stdin/输出stdout作为数据传输接口。与一般的Had" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/tool/hadoop/" />
 
@@ -62,18 +54,18 @@ HADOOP_STREAM=&#39;/path/to/hadoop-streaming/jar&#39; hadoop jar $HADOOP_STREAM 
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="hadoop">Hadoop入门指导</h1>
+      <h1 id="hadoop入门指导">Hadoop入门指导</h1>
 <h2 id="streaming">Streaming</h2>
 <p>Streaming是Hadoop的流式处理工具，以标准输入<code>stdin</code>/输出<code>stdout</code>作为数据传输接口。与一般的Hadoop类似，Streaming一般包括map和reduce两个阶段。
 在map阶段，处理脚本直接从标准输入读入输入文件，进行transform、filter之类处理，将结果打印到标准输出。Streaming会根据输出内容，解析成Key-Value对，默认的分隔符是<code>\t</code>。若每行有多个<code>\t</code>分隔的列，第一个<code>\t</code>之前的内容作为Key，之后的作为Value；若每行没有<code>\t</code>分隔符，则在行尾自动添加<code>\t</code>，Key为<code>\t</code>之前的内容，Value为空。Hadoop根据Key排序分桶，再将数据传输到不同的reduce机器。在reduce阶段，处理脚本从标准输入读取数据，进行reduce、group等处理，将结果打印到标准输出。Streaming自动将输出内容存储包输出文件中。</p>
 <h3 id="map">Map</h3>
 <h3 id="reduce">Reduce</h3>
-<h2 id="heading">实践技巧</h2>
-<h3 id="python">自定义python环境</h3>
+<h2 id="实践技巧">实践技巧</h2>
+<h3 id="自定义python环境">自定义python环境</h3>
 <p>通过conda创建python环境，并安装相关的包，然后打包python环境。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">conda create -n py_env python<span style="color:#f92672">=</span>3.6.8
 <span style="color:#75715e">## 采用pip安装软件包</span>
@@ -96,7 +88,7 @@ hadoop jar $HADOOP_STREAM <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -reducer <span style="color:#e6db74">&#34;env/py_env/bin/python reducer.py&#34;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -input $INPUT <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -output $OUTPUT
-</code></pre></div><h3 id="python-1">自定义python库</h3>
+</code></pre></div><h3 id="自定义python库">自定义python库</h3>
 <p>对自己编写的python库，打包之前先进行测试，确保python库的功能没有问题。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pkg
 <span style="color:#75715e"># test code here</span>
@@ -117,9 +109,9 @@ hadoop jar $HADOOP_STREAM <span style="color:#ae81ff">\
 </code></pre></div><p>此外，在用到这个库的mapper.py或reducer.py中，用如下的命令导入pkg库。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
 
-sys<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>append(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">pkg/</span><span style="color:#e6db74">&#39;</span>)
+sys<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;pkg/&#39;</span>)
 <span style="color:#f92672">import</span> pkg
-</code></pre></div><h3 id="map-1">仅Map操作</h3>
+</code></pre></div><h3 id="仅map操作">仅Map操作</h3>
 <p>对于只有map操作的任务，可以设置<code>-D mapreduce.job.reduces=0</code>，可以节省sort和reduce操作的时间。</p>
 
     </div>

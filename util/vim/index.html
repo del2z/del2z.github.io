@@ -3,23 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。
-常用模式 Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。
-    操作     Normal =&gt; Insert i 光标处插入 I 当前行第一个非空字符前插入 a 光标后插入 A 当前行行尾插入 o 在当前行之后开启新行插入 O 在当前行之前开启新行插入   Insert =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Normal =&gt; Visual v 进入Visual模式，从光标处开始选择 &lt;S-v&gt; 进入行Visual模式，从光标所处的行开始选择 &lt;C-v&gt; 进入列Visual模式，从光标所处的列开始选择   Visual =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Visual &#43; Edit ;normal &lt;operation&gt;&lt;motion&gt;   Normal =&gt; Command :&lt;command&gt;   Command =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;    基本操作 操作指令 Vim在Normal模式下的命令通常是&lt;operation&gt;&lt;motion&gt;形式，&lt;operation&gt;定义一个操作指令，&lt;motion&gt;定义一个动作指令。 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。"/>
+<meta name="twitter:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。
-常用模式 Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。
-    操作     Normal =&gt; Insert i 光标处插入 I 当前行第一个非空字符前插入 a 光标后插入 A 当前行行尾插入 o 在当前行之后开启新行插入 O 在当前行之前开启新行插入   Insert =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Normal =&gt; Visual v 进入Visual模式，从光标处开始选择 &lt;S-v&gt; 进入行Visual模式，从光标所处的行开始选择 &lt;C-v&gt; 进入列Visual模式，从光标所处的列开始选择   Visual =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;   Visual &#43; Edit ;normal &lt;operation&gt;&lt;motion&gt;   Normal =&gt; Command :&lt;command&gt;   Command =&gt; Normal &lt;Esc&gt;或&lt;C-c&gt;    基本操作 操作指令 Vim在Normal模式下的命令通常是&lt;operation&gt;&lt;motion&gt;形式，&lt;operation&gt;定义一个操作指令，&lt;motion&gt;定义一个动作指令。 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。" />
+<meta property="og:description" content="Vim入门指导 Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/util/vim/" />
 
@@ -58,13 +54,13 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          6 min read
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="vim">Vim入门指导</h1>
+      <h1 id="vim入门指导">Vim入门指导</h1>
 <p>Vim是当前最流行的编辑器之一，从初版发布以来的近30年里，一直占据着主流编辑器的一席之地。尽管Vim的学习曲线很陡峭，但它独有的特性却始终吸引着一代代的程序员。在追求捷径和爆发式成功的当下环境中，Vim所代表的沉淀与厚重更显难能可贵。本篇就简单揭示Vim瑰丽世界的一角，以供品鉴。</p>
-<h2 id="heading">常用模式</h2>
+<h2 id="常用模式">常用模式</h2>
 <p>Vim常用的模式有三种，Normal、Insert、Visual、Command模式等。四种模式有不同的进入方法，如下表所示。</p>
 <table>
 <thead>
@@ -104,8 +100,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="heading-1">基本操作</h2>
-<h3 id="heading-2">操作指令</h3>
+<h2 id="基本操作">基本操作</h2>
+<h3 id="操作指令">操作指令</h3>
 <p>Vim在Normal模式下的命令通常是<code>&lt;operation&gt;&lt;motion&gt;</code>形式，<code>&lt;operation&gt;</code>定义一个操作指令，<code>&lt;motion&gt;</code>定义一个动作指令。
 操作指令、修改、复制、粘贴等，动作指令一般是上下左右、前进、后退等光标移动的指令。</p>
 <p>常见的操作如下表。</p>
@@ -311,7 +307,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-3">常用命令</h3>
+<h3 id="常用命令">常用命令</h3>
 <table>
 <thead>
 <tr>
@@ -374,7 +370,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-4">匹配模式</h3>
+<h3 id="匹配模式">匹配模式</h3>
 <p>文本的搜索和替换一般都会用到正则匹配，搜索和替换的基本命令如下。</p>
 <ul>
 <li><code>/&lt;pattern&gt;</code>，在当前文件中搜索模式<code>&lt;pattern&gt;</code>。
@@ -433,7 +429,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-5">折叠</h3>
+<h3 id="折叠">折叠</h3>
 <table>
 <thead>
 <tr>
@@ -496,7 +492,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="heading-6">其它</h3>
+<h3 id="其它">其它</h3>
 <table>
 <thead>
 <tr>
@@ -527,7 +523,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="heading-7">常用插件</h2>
+<h2 id="常用插件">常用插件</h2>
 <table>
 <thead>
 <tr>

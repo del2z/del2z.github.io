@@ -3,25 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映射以及笛卡儿积等。张量一般有多个维度，零维张量是标量，一维是向量，二维是矩阵。Pytorch的基本数据结构就是张量。
-Function Function通常只定义一个操作，因其无法保存参数，因此适用于激活函数、pooling等操作。自定义Function时，需要重载三个方法：__init__、forward和backward。
-Module Function与Module都可以对pytorch进行自定义拓展，使其满足网络的需求，但这两者还是有十分重要的不同：
- Function一般只定义一个操作，因为其无法保存参数，因此适用于激活函数、pooling等操作；Module是保存了参数，因此适合于定义一层，如线性层，卷积层，也适用于定义一个网络 Function需要定义三个方法：init, forward, backward（需要自己写求导公式）；Module：只需定义init和forward，而backward的计算由自动求导机制构成 可以不严谨的认为，Module是由一系列Function组成，因此其在forward的过程中，Function和Variable组成了计算图，在backward时，只需调用Function的backward就得到结果，因此Module不需要再定义backward。 Module不仅包括了Function，还包括了对应的参数，以及其他函数与变量，这是Function所不具备的。 module 是 pytorch 组织神经网络的基本方式。Module 包含了模型的参数以及计算逻辑。Function 承载了实际的功能，定义了前向和后向的计算逻辑。 Module 是任何神经网络的基类，pytorch 中所有模型都必需是 Module 的子类。 Module 可以套嵌，构成树状结构。一个 Module 可以通过将其他 Module 做为属性的方式，完成套嵌。 Function 是 pytorch 自动求导机制的核心类。Function 是无参数或者说无状态的，它只负责接收输入，返回相应的输出；对于反向，它接收输出相应的梯度，返回输入相应的梯度。 在调用loss.backward()时，使用的是Function子类中定义的backward()函数。  "/>
+<meta name="twitter:description" content="Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映射以及笛卡儿积等。张量一般有多个维度，零维张量是标量，一维是向量，二维是矩阵。Pytorch的基本数据结构就是张量。
-Function Function通常只定义一个操作，因其无法保存参数，因此适用于激活函数、pooling等操作。自定义Function时，需要重载三个方法：__init__、forward和backward。
-Module Function与Module都可以对pytorch进行自定义拓展，使其满足网络的需求，但这两者还是有十分重要的不同：
- Function一般只定义一个操作，因为其无法保存参数，因此适用于激活函数、pooling等操作；Module是保存了参数，因此适合于定义一层，如线性层，卷积层，也适用于定义一个网络 Function需要定义三个方法：init, forward, backward（需要自己写求导公式）；Module：只需定义init和forward，而backward的计算由自动求导机制构成 可以不严谨的认为，Module是由一系列Function组成，因此其在forward的过程中，Function和Variable组成了计算图，在backward时，只需调用Function的backward就得到结果，因此Module不需要再定义backward。 Module不仅包括了Function，还包括了对应的参数，以及其他函数与变量，这是Function所不具备的。 module 是 pytorch 组织神经网络的基本方式。Module 包含了模型的参数以及计算逻辑。Function 承载了实际的功能，定义了前向和后向的计算逻辑。 Module 是任何神经网络的基类，pytorch 中所有模型都必需是 Module 的子类。 Module 可以套嵌，构成树状结构。一个 Module 可以通过将其他 Module 做为属性的方式，完成套嵌。 Function 是 pytorch 自动求导机制的核心类。Function 是无参数或者说无状态的，它只负责接收输入，返回相应的输出；对于反向，它接收输出相应的梯度，返回输入相应的梯度。 在调用loss.backward()时，使用的是Function子类中定义的backward()函数。  " />
+<meta property="og:description" content="Pytorch Tensor 张量Tensor是一个可表示在一些标量scalar、向量vector和其它张量之间线性关系的几何对象，这些线性关系包括内积、外积、线性映" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/tool/pytorch/" />
 
@@ -60,7 +54,7 @@ Module Function与Module都可以对pytorch进行自定义拓展，使其满足�
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div></div>
     </header>
     <div class="post-content">

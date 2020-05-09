@@ -3,27 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。
-Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。 $$ f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x}) $$ 针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。 $$ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]
-\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) &#43; \beta \phi(\mathbf{x}_i)) \[5pt] : \phi_t = \phi^\ast, \quad t = 0, \dots, T $$
-直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为梯度提升算法（Gradient Boosting algorithm），二阶近似的Boosting算法一般称为Newton提升算法（Newton Boosting algorithm）。
-梯度提升算法 一阶Taylor展开式如下。 $$ f(x &#43; \Delta x) \approx f(x) &#43; \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0 $$"/>
+<meta name="twitter:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。
-Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。 $$ f(\mathbf{x}) \overset{def}{=} F_T(\mathbf{x}) = \sum_{i=0}^T \beta_i, \phi_i (\mathbf{x}) $$ 针对不同的学习任务定义不同的损失函数$\mathcal{L}(f)$，并通过逐步最小化损失函数，训练每一步的基学习器，最终获得Boosting模型。 $$ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5pt]
-\min_f \mathcal{L}(f) ;\Longleftrightarrow; \min_{\beta}\min_{\phi \in \mathcal{F}} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) &#43; \beta \phi(\mathbf{x}_i)) \[5pt] : \phi_t = \phi^\ast, \quad t = 0, \dots, T $$
-直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为梯度提升算法（Gradient Boosting algorithm），二阶近似的Boosting算法一般称为Newton提升算法（Newton Boosting algorithm）。
-梯度提升算法 一阶Taylor展开式如下。 $$ f(x &#43; \Delta x) \approx f(x) &#43; \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0 $$" />
+<meta property="og:description" content="Boosting算法 基本原理 Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/algorithm/boosting-algorithms/" />
 
@@ -62,12 +54,12 @@ Boosting算法通常采用逐步累加的方式训练模型，用如下的形式
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          6 min read
+          7 min read
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="boosting">Boosting算法</h1>
-<h2 id="heading">基本原理</h2>
+      <h1 id="boosting算法">Boosting算法</h1>
+<h2 id="基本原理">基本原理</h2>
 <p>Boosting算法是一种通用的学习框架，通过集成一组基学习器（base learner），更好的拟合目标函数，属于集成学习（Ensemble Learning）算法。基学习器可以是任意回归算法$\mathcal{A}$训练的模型。因此，boosting算法采用集成的方式，可以有效提升这种算法$\mathcal{A}$的泛化能力。</p>
 <p>Boosting算法通常采用逐步累加的方式训练模型，用如下的形式表示。
 $$
@@ -82,7 +74,7 @@ L(y,, f(\mathbf{x})) = L(F), \quad \forall: (y,, \mathbf{x}) \in \mathcal{D} \[5
 $$</p>
 <p>直观上看，Boosting算法很难训练，因为每一个基学习器都涉及大量的优化计算。但实际上，通过对损失函数的近似估计，可以大大简化训练过程，特别是采用树模型作基学习器的Boosting算法。
 利用Taylor展开式近似计算损失函数可以推导出不同的Boosting算法。通过一阶近似推导的Boosting算法通常称为<strong>梯度提升算法</strong>（<strong>Gradient Boosting algorithm</strong>），二阶近似的Boosting算法一般称为<strong>Newton提升算法</strong>（<strong>Newton Boosting algorithm</strong>）。</p>
-<h3 id="heading-1">梯度提升算法</h3>
+<h3 id="梯度提升算法">梯度提升算法</h3>
 <p>一阶Taylor展开式如下。
 $$
 f(x + \Delta x) \approx f(x) + \frac{d f(x)}{d x} \Delta x, \quad |\Delta x| \approx 0
@@ -105,7 +97,7 @@ $$
 \quad \beta_t = \arg\min</em>{\beta} \frac{1}{N} \sum_{i=1}^N L(y_i, F_{t-1}(\mathbf{x}_i) + \beta \phi_t(\mathbf{x}_i))
 $$</p>
 <p>通过上述过程，Boosting算法可以通过算法$\mathcal{A}$逐步训练每一轮的基学习器，最终得到Boosting模型。由于在训练中仅用到损失函数的一阶近似估计，因此这类算法也被称为梯度提升算法。</p>
-<h3 id="newton">Newton提升算法</h3>
+<h3 id="newton提升算法">Newton提升算法</h3>
 <p>二阶Taylor展开式如下。
 $$
 f(x + \Delta x) \approx f(x) + \frac{d f(x)}{d x} \Delta x + \frac{1}{2} \frac{d^2 f(x)}{d x^2} (\Delta x)^2 , \quad |\Delta x| \approx 0
@@ -219,7 +211,7 @@ $\gamma_{t,, j} = -\frac{G_{t,, j}}{H_{t,, j} + \lambda}$}
 \ENDFOR
 \RETURN$F_K(\mathbf{x})$
 \end{algorithmic}</p>
-<h2 id="heading-2">误差分析</h2>
+<h2 id="误差分析">误差分析</h2>
 <p>\frametitle{偏差—方差分解}
 \begin{itemize}
 \item 泛化误差可分解为偏差（Bias）和方差（Variance）

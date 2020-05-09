@@ -1,0 +1,167 @@
+Last login: Fri Mar 13 15:38:09 on ttys000
+del2z@whale  ~ ·····························································································································································del2z@whale  ~ ··················································································································································· 15:40:42
+❯ ls   
+Applications   Documents      Knowledge      Movies         Pictures       VirtualBox VMs
+Desktop        Downloads      Library        Music          Public         Workspace
+                                                                                                                                                                             del2z@whale  ~ ··················································································································································· 15:40:48
+❯ tmux
+[exited]
+                                                                                                                                                                             del2z@whale  ~ ··············································································································································· 42s 15:41:32
+❯ tmux 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-rw-r--r--  1 del2z  staff    289339 Apr 14 19:12 raw_books/b06997.epub
+-rw-r--r--  1 del2z  staff    255450 Apr 14 19:12 raw_books/b06996.epub
+-rw-r--r--  1 del2z  staff    271928 Apr 14 19:12 raw_books/b06995.epub
+-rw-r--r--  1 del2z  staff    433706 Apr 14 19:12 raw_books/b06994.epub
+-rw-r--r--  1 del2z  staff    992597 Apr 14 19:12 raw_books/b06993.epub
+-rw-r--r--  1 del2z  staff   2399231 Apr 14 19:12 raw_books/b06992.epub
+-rw-r--r--  1 del2z  staff    293453 Apr 14 19:12 raw_books/b06991.epub
+-rw-r--r--  1 del2z  staff    448544 Apr 14 19:12 raw_books/b06990.epub
+                                                                                                                                                                             
+del2z@whale  ~/Desktop/GitHub/Junco/data/datasets/bookcorpus ···························································································· ✔ PIPE|0 20:44:25
+❯ ll raw_books/* | head
+-rw-r--r--  1 del2z  staff    165154 Apr 14 19:12 raw_books/b06999.epub
+-rw-r--r--  1 del2z  staff    401262 Apr 14 19:12 raw_books/b06998.epub
+-rw-r--r--  1 del2z  staff    289339 Apr 14 19:12 raw_books/b06997.epub
+-rw-r--r--  1 del2z  staff    255450 Apr 14 19:12 raw_books/b06996.epub
+-rw-r--r--  1 del2z  staff    271928 Apr 14 19:12 raw_books/b06995.epub
+-rw-r--r--  1 del2z  staff    433706 Apr 14 19:12 raw_books/b06994.epub
+-rw-r--r--  1 del2z  staff    992597 Apr 14 19:12 raw_books/b06993.epub
+-rw-r--r--  1 del2z  staff   2399231 Apr 14 19:12 raw_books/b06992.epub
+-rw-r--r--  1 del2z  staff    293453 Apr 14 19:12 raw_books/b06991.epub
+-rw-r--r--  1 del2z  staff    448544 Apr 14 19:12 raw_books/b06990.epub
+                                                                                                                                                                             
+del2z@whale  ~/Desktop/GitHub/Junco/data/datasets/bookcorpus ···························································································· ✔ PIPE|0 20:44:26
+❯ ll raw_books/* | head
+-rw-r--r--  1 del2z  staff    165154 Apr 14 19:12 raw_books/b06999.epub
+-rw-r--r--  1 del2z  staff    401262 Apr 14 19:12 raw_books/b06998.epub
+-rw-r--r--  1 del2z  staff    289339 Apr 14 19:12 raw_books/b06997.epub
+-rw-r--r--  1 del2z  staff    255450 Apr 14 19:12 raw_books/b06996.epub
+-rw-r--r--  1 del2z  staff    271928 Apr 14 19:12 raw_books/b06995.epub
+-rw-r--r--  1 del2z  staff    433706 Apr 14 19:12 raw_books/b06994.epub
+-rw-r--r--  1 del2z  staff    992597 Apr 14 19:12 raw_books/b06993.epub
+-rw-r--r--  1 del2z  staff   2399231 Apr 14 19:12 raw_books/b06992.epub
+-rw-r--r--  1 del2z  staff    293453 Apr 14 19:12 raw_books/b06991.epub
+-rw-r--r--  1 del2z  staff    448544 Apr 14 19:12 raw_books/b06990.epub
+                                                                                                                                                                             
+del2z@whale  ~/Desktop/GitHub/Junco/data/datasets/bookcorpus ···························································································· ✔ PIPE|0 20:48:57
+❯ vim               
+                                                                                                                                                                             
+del2z@whale  ~/Desktop/GitHub/Junco/data/datasets/bookcorpus ······························································································ 4m 37s 20:54:12
+❯ 
+Session: 0 Window: 4 Pane: 0                      0:expect  1:expect  2:expect  3:python3.6  4:zsh* 5:zsh- 6:zsh  7:expect  8:zsh                        2020-04-14 21:03 PM 
+  [Restored 2020-04-14 at 21:05:02]
+Last login: Tue Apr 14 21:04:58 on console
+del2z@whale  ~ ··················································································································································· 21:05:14
+❯ 
+                                                                                                                                                                             
+del2z@whale  ~ ··················································································································································· 21:07:27
+❯ tmux                    
+
+         bool check_rela_(const Json::Value& jsobj) const;
+         bool check_comp_(const Json::Value& jsobj) const;
+         bool check_body_symp_(const Json::Value& jsobj) const;
++        bool check_symp_rela_(const Json::Value& jsobj) const;
+         bool is_neg_(const std::wstring& text, uint32_t start) const;
+         void find_compo_(const std::wstring& text,
+                          std::vector<match_t>& redun_list,
+@@ -72,10 +74,13 @@ class LinkMed {
+         void synt_comp_(const Entity& raw_entity,
+                         const std::vector<match_t>& match_list,
+                         std::vector<Entity>& entity_list) const;
++        void resolve_overlap_(std::vector<match_t>& match_list) const;
+         void split_symp_(const Entity& raw_entity, std::vector<Entity>& entity_list) const;
+         void find_comm_(const Entity& raw_entity,
+                         const std::vector<match_t>& match_list,
+                         std::vector<Entity>& entity_list) const;
++        void post_process_(const std::vector<match_t>& match_list,
++                           std::vector<Entity>& entity_list) const;
+         void link_symp_(const Entity& raw_entity, std::vector<Entity>& entity_list) const;
+ 
+     private:
+@@ -104,6 +109,7 @@ class LinkMed {
+         std::vector<uint64_t> comm_list_;
+         std::unordered_map<uint64_t, std::unordered_set<uint64_t> > comm_info_;
+         Pattern comm_patt_;
++        std::unordered_map<uint64_t, uint64_t> symp_rela_;
+ };
+ 
+ 
+@@ -124,6 +130,7 @@ inline void LinkMed::clear() {
+     this->comm_list_.clear();
+     this->comm_info_.clear();
+     this->comm_patt_.clear();
++    this->symp_rela_.clear();
+ }
+ 
+ inline size_t LinkMed::size(const std::string& name) const {
+(base) 
+[root@sjs_45_193 /search/odin/daemon/ner_cpp/src/link(comp_symp*)]
+$ 
+Session: 0 Window: 0 Pane: 0                      0:expect* 1:expect  2:expect  3:python3.6  4:nvim  5:zsh  6:zsh  7:expect  8:zsh-                      2020-04-17 14:28 PM 
+  [Restored 2020-04-17 at 14:29:57]
+Last login: Fri Apr 17 14:29:54 on console
+del2z@whale  ~ ··················································································································································· 14:30:10
+❯ tmux
+
+   17 " Find symbol of current document§                                                                                          
+   16 nnoremap <silent> <Leader>o :<C-u>CocList outline<CR>§                                                                      
+   15 " Search workspace symbols§                                                                                                 
+   14 nnoremap <silent> <Leader>s :<C-u>CocList -I symbols<CR>§                                                                   
+   13 " Do default action for next item§                                                                                          
+   12 nnoremap <silent> <Leader>j :<C-u>CocNext<CR>§                                                                              
+   11 " Do default action for previous item§                                                                                      
+   10 nnoremap <silent> <Leader>k :<C-u>CocPrev<CR>§                                                                              
+    9 " Resume latest coc list§                                                                                                   
+    8 nnoremap <silent> <Leader>p :<C-u>CocListResume<CR>§                                                                        
+    7 §                                                                                                                           
+    6 " cpp highlight§                                                                                                            
+    5 " ===============================================================================§                                          
+    4 let g:cpp_class_scope_highlight = 1§                                                                                        
+    3 let g:cpp_member_variable_highlight = 1§                                                                                    
+    2 let g:cpp_class_decl_highlight = 1§                                                                                         
+    1 let g:cpp_posix_standard = 1§                                                                                               
+  268 let g:cpp_concepts_highlight = 1§                                                                                           
+    1 §                                                                                                                           
+    2 " vim-markdown settings§                                                                                                    
+    3 " ===============================================================================§                                          
+    4 let g:vim_markdown_folding_level=2§                                                                                         
+    5 let g:vim_markdown_toc_autofit=1§                                                                                           
+    6 let g:vim_markdown_math=1§                                                                                                  
+    7 let g:vim_markdown_conceal=0§                                                                                               
+    8 let g:vim_markdown_conceal_code_blocks=0§                                                                                   
+    9 §                                                                                                                           
+   10 " table-mode settings§                                                                                                      
+   11 " ===============================================================================§                                          
+   12 map <Leader>tm :TableModeToggle<CR>§                                                                                        
+   13 let g:table_mode_corner='|'§                                                                                                
+ NORMAL  init.vim | +                                                                         unix | utf-8 |  vim   87%  268:32 
+"~/.config/nvim/init.vim" 302L, 9647C written                                                                                     
+Session: 0 Window: 2 Pane: 0  0:zsh  1:expect  2:expect* 3:python3.6- 4:nvim  5:nvim  6:zsh  7:expect  8:zsh  2020-05-03 12:27 PM                        2020-04-30 21:13 PM 

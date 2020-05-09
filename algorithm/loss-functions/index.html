@@ -3,29 +3,19 @@
   <head>
     <title> // 小小的梦想</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.62.0" />
+    <meta name="generator" content="Hugo 0.67.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="del2z" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://del2z.github.io/css/main.min.61bb32028587f24ca28522d8d197970c7ef33284e5fffb45a75fcbbb2dbc4dcb.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="损失函数 通用形式 在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。
-$$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L \big(Y,, f(X)\big)\big] = \mathbb{E}{X} \big[\mathbb{E}_{Y | X} \big[L\big(Y,, f(X)\big), |, X\big]\big] $$ 根据上述表示，损失的计算涉及标签和特征的概率分布。在大多数情况下，这些概率分布式未知的，特别是特征的条件概率分布。 幸运的是，利用一个已知数据集$\mathcal{D} = {(y_i,, \mathbf{x}i)}{i=1}^N$，可以直接估计损失，而不必考虑标签和特征的概率分布。这是因为，数据集$\mathcal{D}$中的样本是根据标签和样本的联合概率分布$P(Y, X)$采样得到的。
-那么，数据集$\mathcal{D}$的损失可以通过如下方式计算。 $$ \mathcal{L}(f) \approx \mathbb{E}\mathcal{D} [L(Y,, f(X))] = \frac{1}{N} \sum{i=1}^N L(y_i,, f(\mathbf{x}_i)) $$
-0-1损失 $$ L(y,, f(\mathbf{x})) = \mathbf{1} [y \neq g( f(\mathbf{x}) )], \quad g(z) = \begin{cases} 1, &amp; z \geq 0 \
--1, &amp; z &lt; 0 \end{cases} $$
-均方差损失 $$ L(y,, f(\mathbf{x})) = (y - f(\mathbf{x}))^2 $$"/>
+<meta name="twitter:description" content="损失函数 通用形式 在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。 $$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L"/>
 
     <meta property="og:title" content="" />
-<meta property="og:description" content="损失函数 通用形式 在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。
-$$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L \big(Y,, f(X)\big)\big] = \mathbb{E}{X} \big[\mathbb{E}_{Y | X} \big[L\big(Y,, f(X)\big), |, X\big]\big] $$ 根据上述表示，损失的计算涉及标签和特征的概率分布。在大多数情况下，这些概率分布式未知的，特别是特征的条件概率分布。 幸运的是，利用一个已知数据集$\mathcal{D} = {(y_i,, \mathbf{x}i)}{i=1}^N$，可以直接估计损失，而不必考虑标签和特征的概率分布。这是因为，数据集$\mathcal{D}$中的样本是根据标签和样本的联合概率分布$P(Y, X)$采样得到的。
-那么，数据集$\mathcal{D}$的损失可以通过如下方式计算。 $$ \mathcal{L}(f) \approx \mathbb{E}\mathcal{D} [L(Y,, f(X))] = \frac{1}{N} \sum{i=1}^N L(y_i,, f(\mathbf{x}_i)) $$
-0-1损失 $$ L(y,, f(\mathbf{x})) = \mathbf{1} [y \neq g( f(\mathbf{x}) )], \quad g(z) = \begin{cases} 1, &amp; z \geq 0 \
--1, &amp; z &lt; 0 \end{cases} $$
-均方差损失 $$ L(y,, f(\mathbf{x})) = (y - f(\mathbf{x}))^2 $$" />
+<meta property="og:description" content="损失函数 通用形式 在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。 $$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://del2z.github.io/algorithm/loss-functions/" />
 
@@ -68,8 +58,8 @@ $$ \mathcal{L}(f) = \mathbb{E}{Y,, X} \big[L \big(Y,, f(X)\big)\big] = \mathbb{E
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="heading">损失函数</h1>
-<h2 id="heading-1">通用形式</h2>
+      <h1 id="损失函数">损失函数</h1>
+<h2 id="通用形式">通用形式</h2>
 <p>在监督学习中，损失是用于衡量目标值与预测值的期望误差，而这个误差需要通过损失函数来计算，损失的一般形式表示如下。</p>
 <p>$$
 \mathcal{L}(f) = \mathbb{E}<em>{Y,, X} \big[L \big(Y,, f(X)\big)\big] = \mathbb{E}</em>{X} \big[\mathbb{E}_{Y | X} \big[L\big(Y,, f(X)\big), |, X\big]\big]
@@ -80,30 +70,30 @@ $$
 $$
 \mathcal{L}(f) \approx \mathbb{E}<em>\mathcal{D} [L(Y,, f(X))] = \frac{1}{N} \sum</em>{i=1}^N L(y_i,, f(\mathbf{x}_i))
 $$</p>
-<h2 id="0-1">0-1损失</h2>
+<h2 id="0-1损失">0-1损失</h2>
 <p>$$
 L(y,, f(\mathbf{x})) = \mathbf{1} [y \neq g( f(\mathbf{x}) )], \quad g(z) = \begin{cases}
 1,  &amp; z \geq 0 \<br>
 -1, &amp; z &lt; 0
 \end{cases}
 $$</p>
-<h2 id="heading-2">均方差损失</h2>
+<h2 id="均方差损失">均方差损失</h2>
 <p>$$
 L(y,, f(\mathbf{x})) = (y - f(\mathbf{x}))^2
 $$</p>
-<h2 id="heading-3">交叉熵损失</h2>
+<h2 id="交叉熵损失">交叉熵损失</h2>
 <p>$$
 L(y,, f(\mathbf{x})) = -\sum_y p(y) \log \big[ q(y, |, f(\mathbf{x}) ) \big], \quad q(1, |, z) = \frac{1}{1 + e^{-z}}
 $$</p>
-<h2 id="heading-4">折页损失</h2>
+<h2 id="折页损失">折页损失</h2>
 <p>$$
 L(y,, f(\mathbf{x})) = \max {0, 1 - y, f(\mathbf{x})}
 $$</p>
-<h2 id="heading-5">指数损失</h2>
+<h2 id="指数损失">指数损失</h2>
 <p>$$
 L(y,, f(\mathbf{x})) = \exp {-y, f(\mathbf{x})}
 $$</p>
-<h2 id="heading-6">损失函数对比</h2>
+<h2 id="损失函数对比">损失函数对比</h2>
 
     </div>
     <div class="post-footer">
